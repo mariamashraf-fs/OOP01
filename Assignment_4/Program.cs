@@ -20,6 +20,24 @@ internal class Program
 
         #endregion
 
+        #region Question_2
+
+        /* a) Identify at least three problems with this design from an encapsulation perspective.*/
+
+        // Answer ->
+        // 1-> All fields are public, so anyone can access and modify them.
+        // 2-> There is no validation for the data.
+        // 3-> There is no separation between data and logic.
+
+        /*b) How can private fields and public properties improve this design?*/
+
+        // Answer ->
+        // 1-> Make the fields private to protect the data.
+        // 2-> Use public properties to control access.
+        // 3-> Add validation to accept only valid values.
+
+        #endregion
+
         #endregion
 
     }
