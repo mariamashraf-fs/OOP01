@@ -59,6 +59,22 @@ internal class Program
 
         #endregion
 
+        #region Question_2
+        DeliveryAddress address = new DeliveryAddress("Beni-Suef", "Al-Wasta", 15);
+
+        Shipment shipment = new Shipment("TR001", "Laptop", 3.5, 100, address);
+
+        shipment.PrintShipment();
+         Console.WriteLine("============================");
+
+        Console.WriteLine("After Updating Delivery Fee ->");
+        shipment.UpdateDeliveryFee(-50);
+        shipment.PrintShipment();
+
+
+
+        #endregion
+
         #endregion
 
     }
