@@ -1,4 +1,6 @@
-﻿namespace Assignment_4;
+﻿using Assignment_4.Structs;
+
+namespace Assignment_4;
 
 internal class Program
 {
@@ -35,6 +37,25 @@ internal class Program
         // 1-> Make the fields private to protect the data.
         // 2-> Use public properties to control access.
         // 3-> Add validation to accept only valid values.
+
+        #endregion
+
+        #endregion
+
+        #region Part02
+
+        #region Question_1
+        /*Create one DeliveryAddress value, copy it into a second variable,
+         modify the copy, and print both values to prove that the original did not change.*/
+
+        //DeliveryAddress address1 = new DeliveryAddress("Beni-Suef", "Al-Wasta", 15);
+
+        //DeliveryAddress address2 = address1;
+
+        //address2.City = "Port-Said";
+
+        //Console.WriteLine($"Original -> {address1.GetFullAddress()}");
+        //Console.WriteLine($"Copy -> {address2.GetFullAddress()}");
 
         #endregion
 
