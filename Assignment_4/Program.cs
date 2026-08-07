@@ -98,6 +98,31 @@ internal class Program
 
         #endregion
 
+        #region Question_2
+        /*a) Which class is the parent class?*/
+
+        //Answer -> Shipment is the parent class.
+
+
+        /*b) Which class is the child class?*/
+
+        //Answer -> ExpressShipment is the child class.
+
+
+        /*c) What members are inherited by ExpressShipment?*/
+
+        //Answer -> ExpressShipment inherits the TrackingCode property from Shipment.
+
+
+        /*d) Why is inheritance better than duplicating the same code in multiple classes?*/
+
+        //Answer ->
+        // 1-> It avoids repeating the same code.
+        // 2-> Shared logic is written once and reused by child classes.
+        // 3-> Changes can be made in one place.
+
+        #endregion
+
         #endregion
 
         #endregion
