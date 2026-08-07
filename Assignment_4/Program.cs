@@ -1,4 +1,7 @@
-﻿using Assignment_4.Structs;
+﻿using Assignment_4.Classes;
+using Assignment_4.Structs;
+using System.Drawing;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Assignment_4;
 
@@ -60,19 +63,387 @@ internal class Program
         #endregion
 
         #region Question_2
-        DeliveryAddress address = new DeliveryAddress("Beni-Suef", "Al-Wasta", 15);
+        //DeliveryAddress address = new DeliveryAddress("Beni-Suef", "Al-Wasta", 15);
 
-        Shipment shipment = new Shipment("TR001", "Laptop", 3.5, 100, address);
+        //Shipment shipment = new Shipment("TR001", "Laptop", 3.5, 100, address);
 
-        shipment.PrintShipment();
-         Console.WriteLine("============================");
+        //shipment.PrintShipment();
+        // Console.WriteLine("============================");
 
-        Console.WriteLine("After Updating Delivery Fee ->");
-        shipment.UpdateDeliveryFee(-50);
-        shipment.PrintShipment();
+        //Console.WriteLine("After Updating Delivery Fee ->");
+        //shipment.UpdateDeliveryFee(-50);
+        //shipment.PrintShipment();
 
 
 
+        #endregion
+
+        #endregion
+
+        #region Assignment_5
+
+        #region Part01
+
+        #region Question_1
+        /*a) What is the difference between a class and a struct?*/
+
+        //Answer ->
+        // 1-> Class is reference type, struct is value type.
+        // 2-> Class is stored on the Heap, struct is stored on the stack.
+        // 3-> Class supports inheritance, struct does not.
+        // 4-> Class can be null, struct cannot be null (unless declared as nullable).
+
+        /*b) Why are classes more suitable than structs for large applications?*/
+
+        //Answer -> 
+        // 1-> Classes support inheritance, which helps organize and reuse code in large projects.
+        // 2-> Classes are reference types, so multiple parts of the program can share and update the same object.
+
+        #endregion
+
+        #region Question_2
+        /*a) Which class is the parent class?*/
+
+        //Answer -> Shipment is the parent class.
+
+
+        /*b) Which class is the child class?*/
+
+        //Answer -> ExpressShipment is the child class.
+
+
+        /*c) What members are inherited by ExpressShipment?*/
+
+        //Answer -> ExpressShipment inherits the TrackingCode property from Shipment.
+
+
+        /*d) Why is inheritance better than duplicating the same code in multiple classes?*/
+
+        //Answer ->
+        // 1-> It avoids repeating the same code.
+        // 2-> Shared logic is written once and reused by child classes.
+        // 3-> Changes can be made in one place.
+
+        #endregion
+
+        #endregion
+
+        #region Part02
+
+        #region Point_06
+
+        /*6. In Main, build a Console Application that does the following:
+           a. Create a DeliveryCenter.
+           b. Read data for three shipments from the user.
+           c. Create each Shipment and add it to the DeliveryCenter.
+           d. Print the three shipments using the integer indexer.
+           e. Ask the user to enter a tracking code.
+           f. Search for the shipment using the string indexer.
+           g. Print the shipment if found; otherwise print: Shipment not found.
+           Demonstrate the DeliveryAddress struct copy behavior.*/
+
+        //DeliveryCenter center = new DeliveryCenter();
+
+        //for (int i = 0; i < 3; i++)
+        //{
+        //    Console.WriteLine($"Enter Shipment {i + 1} Data");
+
+        //    Console.Write("Tracking Code: ");
+        //    string trackingCode = Console.ReadLine()!;
+
+        //    Console.Write("Description: ");
+        //    string description = Console.ReadLine()!;
+
+        //    double weight;
+        //    do
+        //    { Console.Write("Weight: ");
+        //    } while (!double.TryParse(Console.ReadLine()!, out weight));
+
+        //    decimal deliveryFee;
+        //    do
+        //    { Console.Write("Delivery Fee: ");
+        //    } while (!decimal.TryParse(Console.ReadLine()!, out deliveryFee));
+
+        //    Console.Write("City: ");
+        //    string city = Console.ReadLine()!;
+
+        //    Console.Write("Street: ");
+        //    string street = Console.ReadLine()!;
+
+        //    int buildingNumber;
+        //    do
+        //    { Console.Write("Building Number: ");
+        //    } while (!int.TryParse(Console.ReadLine()!, out buildingNumber));
+
+        //   DeliveryAddress address = new DeliveryAddress(city, street, buildingNumber);
+
+        //   Shipment shipment = new Shipment(trackingCode, description, weight, deliveryFee, address);
+
+        //    if (center.AddShipment(shipment))
+        //        Console.WriteLine("Shipment added successfully.");
+        //    else
+        //        Console.WriteLine("Delivery Center is full.");
+
+        //    Console.WriteLine();
+        //}
+
+        //Console.WriteLine("--- All Shipments ---");
+
+        //for (int i = 0; i < 3; i++)
+        //{
+        //    center[i].PrintShipment();
+        //    Console.WriteLine();
+        //}
+
+        //Console.Write("Enter a tracking code to search: ");
+        //string searchCode = Console.ReadLine()!;
+
+        //Shipment searchedShipment = center[searchCode];
+
+        //if (string.IsNullOrWhiteSpace(searchedShipment.TrackingCode))
+        //    Console.WriteLine("Shipment not found.");
+        //else
+        //    Console.WriteLine($"Shipment found: {searchedShipment.TrackingCode} - {searchedShipment.Description}");
+
+        //Console.WriteLine("--- Struct Copy Test ---");
+
+        //DeliveryAddress address1 = new DeliveryAddress("Cairo", "Tahrir Street", 15);
+        //DeliveryAddress address2 = address1;
+
+        //address2.City = "Cairo";
+        //address2.Street = "Makram Ebeid Street";
+        //address2.BuildingNumber = 20;
+
+        //Console.WriteLine($"Original Address: {address1.GetFullAddress()}");
+        //Console.WriteLine($"Copied Address: {address2.GetFullAddress()}");
+
+        #endregion
+
+        #region Point_04
+
+        /*4. Demonstrate Class Relationships
+
+        Inheritance:
+        Shipment
+        ├── StandardShipment
+        ├── ExpressShipment
+        └── InternationalShipment */
+
+        //The inheritance relationship is demonstrated by creating three child classes
+        //(StandardShipment, ExpressShipment, and InternationalShipment) that inherit from the parent class Shipment.
+        //This allows all shipment types to be treated as Shipment objects while keeping their specific behaviors.
+
+        #endregion
+
+        #region Point_05
+
+        /*5. In Main
+        Build a Console Application that performs the following:
+        1. Create a DeliveryCenter.
+        2. Read the center name from the user.
+        3. Create one StandardShipment.
+        4. Create one ExpressShipment.
+        5. Create one InternationalShipment.
+        6. Read all shipment data from the user.
+        7. Add the shipments to the delivery center.
+        8. Print all shipments.
+        9. Search for a shipment using the existing tracking code indexer.
+        10. Remove one shipment using its tracking code.
+        11. Print the remaining shipments.*/
+
+
+        Console.Write("Enter Delivery Center Name: ");
+        string centerName = Console.ReadLine()!;
+
+        DeliveryCenter center = new DeliveryCenter(centerName);
+
+
+        // Standard Shipment 
+
+        Console.WriteLine("\n--- Enter Standard Shipment Data ---");
+
+        Console.Write("Tracking Code: ");
+        string stCode = Console.ReadLine()!;
+
+        Console.Write("Description: ");
+        string stDesc = Console.ReadLine()!;
+
+        decimal stWeight;
+        do
+        { Console.Write("Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out stWeight));
+
+        decimal stFee;
+        do
+        { Console.Write("Delivery Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out stFee));
+
+        Console.Write("City: ");
+        string stCity = Console.ReadLine()!;
+
+        Console.Write("Street: ");
+        string stStreet = Console.ReadLine()!;
+
+        int stBuilding;
+        do
+        { Console.Write("Building Number: ");
+        }
+        while (!int.TryParse(Console.ReadLine(), out stBuilding));
+
+        DeliveryAddress standardAddress = new DeliveryAddress(stCity, stStreet, stBuilding);
+
+        StandardShipment standard = new StandardShipment( stCode, stDesc, stWeight, stFee, standardAddress);
+
+
+        // Express Shipment 
+
+        Console.WriteLine("\n--- Enter Express Shipment Data ---");
+
+        Console.Write("Tracking Code: ");
+        string exCode = Console.ReadLine()!;
+
+        Console.Write("Description: ");
+        string exDesc = Console.ReadLine()!;
+
+        decimal exWeight;
+        do
+        { Console.Write("Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out exWeight));
+
+        decimal exFee;
+        do
+        { Console.Write("Delivery Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out exFee));
+
+        decimal extraFee;
+        do
+        { Console.Write("Extra Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out extraFee));
+
+        Console.Write("City: ");
+        string exCity = Console.ReadLine()!;
+
+        Console.Write("Street: ");
+        string exStreet = Console.ReadLine()!;
+
+        int exBuilding;
+        do
+        { Console.Write("Building Number: ");
+        }
+        while (!int.TryParse(Console.ReadLine(), out exBuilding));
+
+        DeliveryAddress expressAddress = new DeliveryAddress(exCity, exStreet, exBuilding);
+
+        ExpressShipment express = new ExpressShipment( exCode, exDesc, exWeight, exFee, expressAddress, extraFee);
+
+
+        //International Shipment
+
+        Console.WriteLine("\n--- Enter International Shipment Data ---");
+
+        Console.Write("Tracking Code: ");
+        string inCode = Console.ReadLine()!;
+
+        Console.Write("Description: ");
+        string inDesc = Console.ReadLine()!;
+
+        decimal inWeight;
+        do
+        { Console.Write("Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out inWeight));
+
+        decimal inFee;
+        do
+        { Console.Write("Delivery Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out inFee));
+
+        Console.Write("Destination Country: ");
+        string country = Console.ReadLine()!;
+
+        decimal customsFee;
+        do
+        { Console.Write("Customs Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out customsFee));
+
+        Console.Write("City: ");
+        string inCity = Console.ReadLine()!;
+
+        Console.Write("Street: ");
+        string inStreet = Console.ReadLine()!;
+
+        int inBuilding;
+        do
+        { Console.Write("Building Number: ");
+        }
+        while (!int.TryParse(Console.ReadLine(), out inBuilding));
+
+        DeliveryAddress internationalAddress = new DeliveryAddress(inCity, inStreet, inBuilding);
+
+        InternationalShipment international = new InternationalShipment( inCode, inDesc, inWeight, inFee, internationalAddress, country,
+                                                  customsFee);
+
+
+
+        Console.WriteLine();
+        if (center.AddShipment(standard)) Console.WriteLine("Shipment Added Successfully.");
+        if (center.AddShipment(express)) Console.WriteLine("Shipment Added Successfully.");
+        if (center.AddShipment(international)) Console.WriteLine("Shipment Added Successfully.");
+        Console.WriteLine();
+
+        center.PrintAllShipments();
+
+
+        //Search 
+
+        Console.Write("\nEnter Tracking Code To Search: ");
+        string searchCode = Console.ReadLine()!;
+
+        Shipment? foundShipment = center[searchCode];
+
+        if (foundShipment != null)
+        {
+            Console.WriteLine("\nShipment Found:");
+            foundShipment.PrintShipment();
+        }
+        else
+        {
+            Console.WriteLine("Shipment not found.");
+        }
+
+
+        // Remove 
+
+        Console.Write("\nEnter Tracking Code To Remove: ");
+        string removeCode = Console.ReadLine()!;
+
+        bool removed = center.RemoveShipment(removeCode);
+
+        if (removed)
+        {
+            Console.WriteLine("Shipment Removed Successfully.\n");
+        }
+        else
+        {
+            Console.WriteLine("Shipment not found.");
+        }
+
+
+        // Remaining 
+        Console.WriteLine("\n========================================");
+        Console.WriteLine("Remaining Shipments");
+        Console.WriteLine("========================================");
+
+        center.PrintAllShipments();
+
+        #endregion
         #endregion
 
         #endregion
