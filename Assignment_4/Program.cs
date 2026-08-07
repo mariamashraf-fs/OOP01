@@ -60,18 +60,43 @@ internal class Program
         #endregion
 
         #region Question_2
-        DeliveryAddress address = new DeliveryAddress("Beni-Suef", "Al-Wasta", 15);
+        //DeliveryAddress address = new DeliveryAddress("Beni-Suef", "Al-Wasta", 15);
 
-        Shipment shipment = new Shipment("TR001", "Laptop", 3.5, 100, address);
+        //Shipment shipment = new Shipment("TR001", "Laptop", 3.5, 100, address);
 
-        shipment.PrintShipment();
-         Console.WriteLine("============================");
+        //shipment.PrintShipment();
+        // Console.WriteLine("============================");
 
-        Console.WriteLine("After Updating Delivery Fee ->");
-        shipment.UpdateDeliveryFee(-50);
-        shipment.PrintShipment();
+        //Console.WriteLine("After Updating Delivery Fee ->");
+        //shipment.UpdateDeliveryFee(-50);
+        //shipment.PrintShipment();
 
 
+
+        #endregion
+
+        #endregion
+
+        #region Assignment_5
+
+        #region Part01
+
+        #region Question_1
+        /*a) What is the difference between a class and a struct?*/
+
+        //Answer ->
+        // 1-> Class is reference type, struct is value type.
+        // 2-> Class is stored on the Heap, struct is stored on the stack.
+        // 3-> Class supports inheritance, struct does not.
+        // 4-> Class can be null, struct cannot be null (unless declared as nullable).
+
+        /*b) Why are classes more suitable than structs for large applications?*/
+
+        //Answer -> 
+        // 1-> Classes support inheritance, which helps organize and reuse code in large projects.
+        // 2-> Classes are reference types, so multiple parts of the program can share and update the same object.
+
+        #endregion
 
         #endregion
 
