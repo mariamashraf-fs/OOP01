@@ -125,6 +125,101 @@ internal class Program
 
         #endregion
 
+        #region Part02
+
+        #region Point_06
+
+        /*6. In Main, build a Console Application that does the following:
+           a. Create a DeliveryCenter.
+           b. Read data for three shipments from the user.
+           c. Create each Shipment and add it to the DeliveryCenter.
+           d. Print the three shipments using the integer indexer.
+           e. Ask the user to enter a tracking code.
+           f. Search for the shipment using the string indexer.
+           g. Print the shipment if found; otherwise print: Shipment not found.
+           Demonstrate the DeliveryAddress struct copy behavior.*/
+
+        //DeliveryCenter center = new DeliveryCenter();
+
+        //for (int i = 0; i < 3; i++)
+        //{
+        //    Console.WriteLine($"Enter Shipment {i + 1} Data");
+
+        //    Console.Write("Tracking Code: ");
+        //    string trackingCode = Console.ReadLine()!;
+
+        //    Console.Write("Description: ");
+        //    string description = Console.ReadLine()!;
+
+        //    double weight;
+        //    do
+        //    { Console.Write("Weight: ");
+        //    } while (!double.TryParse(Console.ReadLine()!, out weight));
+
+        //    decimal deliveryFee;
+        //    do
+        //    { Console.Write("Delivery Fee: ");
+        //    } while (!decimal.TryParse(Console.ReadLine()!, out deliveryFee));
+
+        //    Console.Write("City: ");
+        //    string city = Console.ReadLine()!;
+
+        //    Console.Write("Street: ");
+        //    string street = Console.ReadLine()!;
+
+        //    int buildingNumber;
+        //    do
+        //    { Console.Write("Building Number: ");
+        //    } while (!int.TryParse(Console.ReadLine()!, out buildingNumber));
+
+        //   DeliveryAddress address = new DeliveryAddress(city, street, buildingNumber);
+
+        //   Shipment shipment = new Shipment(trackingCode, description, weight, deliveryFee, address);
+
+        //    if (center.AddShipment(shipment))
+        //        Console.WriteLine("Shipment added successfully.");
+        //    else
+        //        Console.WriteLine("Delivery Center is full.");
+
+        //    Console.WriteLine();
+        //}
+
+        //Console.WriteLine("--- All Shipments ---");
+
+        //for (int i = 0; i < 3; i++)
+        //{
+        //    center[i].PrintShipment();
+        //    Console.WriteLine();
+        //}
+
+        //Console.Write("Enter a tracking code to search: ");
+        //string searchCode = Console.ReadLine()!;
+
+        //Shipment searchedShipment = center[searchCode];
+
+        //if (string.IsNullOrWhiteSpace(searchedShipment.TrackingCode))
+        //    Console.WriteLine("Shipment not found.");
+        //else
+        //    Console.WriteLine($"Shipment found: {searchedShipment.TrackingCode} - {searchedShipment.Description}");
+
+        //Console.WriteLine("--- Struct Copy Test ---");
+
+        //DeliveryAddress address1 = new DeliveryAddress("Cairo", "Tahrir Street", 15);
+        //DeliveryAddress address2 = address1;
+
+        //address2.City = "Cairo";
+        //address2.Street = "Makram Ebeid Street";
+        //address2.BuildingNumber = 20;
+
+        //Console.WriteLine($"Original Address: {address1.GetFullAddress()}");
+        //Console.WriteLine($"Copied Address: {address2.GetFullAddress()}");
+
+        #endregion
+
+
+
+        #endregion
+
         #endregion
 
     }
