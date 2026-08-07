@@ -40,5 +40,15 @@ namespace Assignment_4.Classes
             DestinationCountry = country;
             CustomsFee = customsFee;
         }
+
+        public override void PrintShipment()
+        {
+            Console.WriteLine("International Shipment\n");
+            base.PrintShipment();
+            Console.WriteLine($"Destination Country : {DestinationCountry}");
+            Console.WriteLine($"Customs Fee         : {CustomsFee} EGP");
+            Console.WriteLine($"Estimated Cost      : {EstimatedCost} EGP");
+            Console.WriteLine("\n-------------------------------------------");
+        }
     }
 }

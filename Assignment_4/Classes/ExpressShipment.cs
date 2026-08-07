@@ -27,5 +27,14 @@ namespace Assignment_4.Classes
         {
             ExtraFee = extraFee;
         }
+
+        public override void PrintShipment()
+        {
+            Console.WriteLine("Express Shipment\n");
+            base.PrintShipment();
+            Console.WriteLine($"Extra Fee     : {ExtraFee} EGP");
+            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+            Console.WriteLine("\n----------------------------------------");
+        }
     }
 }

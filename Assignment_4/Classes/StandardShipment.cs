@@ -12,6 +12,14 @@ namespace Assignment_4.Classes
         {
 
         }
+
+        public override void PrintShipment()
+        {
+            Console.WriteLine("Standard Shipment\n");
+            base.PrintShipment();
+            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+            Console.WriteLine("\n-----------------------------------------");
+        }
     }
 
 }

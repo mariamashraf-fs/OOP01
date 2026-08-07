@@ -89,15 +89,15 @@ namespace Assignment_4.Classes
             DeliveryFee = (newFee > 0) ? newFee : DeliveryFee;
         }
 
-        public void PrintShipment()
+        public  virtual void PrintShipment()
         {
             Console.WriteLine("============= Shipment Details =============");
-            Console.WriteLine($"Tracking Code -> {TrackingCode}");
-            Console.WriteLine($"Description -> {Description}");
-            Console.WriteLine($"Weight -> {Weight}");
-            Console.WriteLine($"Delivery Fee -> {DeliveryFee}");
-            Console.WriteLine($"Destination -> {Destination.GetFullAddress()}");
-            Console.WriteLine($"Estimated Cost -> {EstimatedCost}");
+            Console.WriteLine($"Tracking Code  : {TrackingCode}");
+            Console.WriteLine($"Description    : {Description}");
+            Console.WriteLine($"Weight         : {Weight} KG");
+            Console.WriteLine($"Delivery Fee   : {DeliveryFee} EGP");
+            Console.WriteLine($"Destination    : {Destination.GetFullAddress()}");
         }
+    
     }
 }

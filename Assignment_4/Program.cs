@@ -1,4 +1,7 @@
-﻿using Assignment_4.Structs;
+﻿using Assignment_4.Classes;
+using Assignment_4.Structs;
+using System.Drawing;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Assignment_4;
 
@@ -216,8 +219,231 @@ internal class Program
 
         #endregion
 
+        #region Point_04
+
+        /*4. Demonstrate Class Relationships
+
+        Inheritance:
+        Shipment
+        ├── StandardShipment
+        ├── ExpressShipment
+        └── InternationalShipment */
+
+        //The inheritance relationship is demonstrated by creating three child classes
+        //(StandardShipment, ExpressShipment, and InternationalShipment) that inherit from the parent class Shipment.
+        //This allows all shipment types to be treated as Shipment objects while keeping their specific behaviors.
+
+        #endregion
+
+        #region Point_05
+
+        /*5. In Main
+        Build a Console Application that performs the following:
+        1. Create a DeliveryCenter.
+        2. Read the center name from the user.
+        3. Create one StandardShipment.
+        4. Create one ExpressShipment.
+        5. Create one InternationalShipment.
+        6. Read all shipment data from the user.
+        7. Add the shipments to the delivery center.
+        8. Print all shipments.
+        9. Search for a shipment using the existing tracking code indexer.
+        10. Remove one shipment using its tracking code.
+        11. Print the remaining shipments.*/
 
 
+        Console.Write("Enter Delivery Center Name: ");
+        string centerName = Console.ReadLine()!;
+
+        DeliveryCenter center = new DeliveryCenter(centerName);
+
+
+        // Standard Shipment 
+
+        Console.WriteLine("\n--- Enter Standard Shipment Data ---");
+
+        Console.Write("Tracking Code: ");
+        string stCode = Console.ReadLine()!;
+
+        Console.Write("Description: ");
+        string stDesc = Console.ReadLine()!;
+
+        decimal stWeight;
+        do
+        { Console.Write("Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out stWeight));
+
+        decimal stFee;
+        do
+        { Console.Write("Delivery Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out stFee));
+
+        Console.Write("City: ");
+        string stCity = Console.ReadLine()!;
+
+        Console.Write("Street: ");
+        string stStreet = Console.ReadLine()!;
+
+        int stBuilding;
+        do
+        { Console.Write("Building Number: ");
+        }
+        while (!int.TryParse(Console.ReadLine(), out stBuilding));
+
+        DeliveryAddress standardAddress = new DeliveryAddress(stCity, stStreet, stBuilding);
+
+        StandardShipment standard = new StandardShipment( stCode, stDesc, stWeight, stFee, standardAddress);
+
+
+        // Express Shipment 
+
+        Console.WriteLine("\n--- Enter Express Shipment Data ---");
+
+        Console.Write("Tracking Code: ");
+        string exCode = Console.ReadLine()!;
+
+        Console.Write("Description: ");
+        string exDesc = Console.ReadLine()!;
+
+        decimal exWeight;
+        do
+        { Console.Write("Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out exWeight));
+
+        decimal exFee;
+        do
+        { Console.Write("Delivery Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out exFee));
+
+        decimal extraFee;
+        do
+        { Console.Write("Extra Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out extraFee));
+
+        Console.Write("City: ");
+        string exCity = Console.ReadLine()!;
+
+        Console.Write("Street: ");
+        string exStreet = Console.ReadLine()!;
+
+        int exBuilding;
+        do
+        { Console.Write("Building Number: ");
+        }
+        while (!int.TryParse(Console.ReadLine(), out exBuilding));
+
+        DeliveryAddress expressAddress = new DeliveryAddress(exCity, exStreet, exBuilding);
+
+        ExpressShipment express = new ExpressShipment( exCode, exDesc, exWeight, exFee, expressAddress, extraFee);
+
+
+        //International Shipment
+
+        Console.WriteLine("\n--- Enter International Shipment Data ---");
+
+        Console.Write("Tracking Code: ");
+        string inCode = Console.ReadLine()!;
+
+        Console.Write("Description: ");
+        string inDesc = Console.ReadLine()!;
+
+        decimal inWeight;
+        do
+        { Console.Write("Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out inWeight));
+
+        decimal inFee;
+        do
+        { Console.Write("Delivery Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out inFee));
+
+        Console.Write("Destination Country: ");
+        string country = Console.ReadLine()!;
+
+        decimal customsFee;
+        do
+        { Console.Write("Customs Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out customsFee));
+
+        Console.Write("City: ");
+        string inCity = Console.ReadLine()!;
+
+        Console.Write("Street: ");
+        string inStreet = Console.ReadLine()!;
+
+        int inBuilding;
+        do
+        { Console.Write("Building Number: ");
+        }
+        while (!int.TryParse(Console.ReadLine(), out inBuilding));
+
+        DeliveryAddress internationalAddress = new DeliveryAddress(inCity, inStreet, inBuilding);
+
+        InternationalShipment international = new InternationalShipment( inCode, inDesc, inWeight, inFee, internationalAddress, country,
+                                                  customsFee);
+
+
+
+        Console.WriteLine();
+        if (center.AddShipment(standard)) Console.WriteLine("Shipment Added Successfully.");
+        if (center.AddShipment(express)) Console.WriteLine("Shipment Added Successfully.");
+        if (center.AddShipment(international)) Console.WriteLine("Shipment Added Successfully.");
+        Console.WriteLine();
+
+        center.PrintAllShipments();
+
+
+        //Search 
+
+        Console.Write("\nEnter Tracking Code To Search: ");
+        string searchCode = Console.ReadLine()!;
+
+        Shipment? foundShipment = center[searchCode];
+
+        if (foundShipment != null)
+        {
+            Console.WriteLine("\nShipment Found:");
+            foundShipment.PrintShipment();
+        }
+        else
+        {
+            Console.WriteLine("Shipment not found.");
+        }
+
+
+        // Remove 
+
+        Console.Write("\nEnter Tracking Code To Remove: ");
+        string removeCode = Console.ReadLine()!;
+
+        bool removed = center.RemoveShipment(removeCode);
+
+        if (removed)
+        {
+            Console.WriteLine("Shipment Removed Successfully.\n");
+        }
+        else
+        {
+            Console.WriteLine("Shipment not found.");
+        }
+
+
+        // Remaining 
+        Console.WriteLine("\n========================================");
+        Console.WriteLine("Remaining Shipments");
+        Console.WriteLine("========================================");
+
+        center.PrintAllShipments();
+
+        #endregion
         #endregion
 
         #endregion
