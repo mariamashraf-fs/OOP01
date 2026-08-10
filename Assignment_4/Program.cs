@@ -1,6 +1,7 @@
 ﻿using Assignment_4.Classes;
 using Assignment_4.Structs;
 using System.Drawing;
+using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Assignment_4;
@@ -252,14 +253,298 @@ internal class Program
         11. Print the remaining shipments.*/
 
 
+        //Console.Write("Enter Delivery Center Name: ");
+        //string centerName = Console.ReadLine()!;
+
+        //DeliveryCenter center = new DeliveryCenter(centerName);
+
+
+        //// Standard Shipment 
+
+        //Console.WriteLine("\n--- Enter Standard Shipment Data ---");
+
+        //Console.Write("Tracking Code: ");
+        //string stCode = Console.ReadLine()!;
+
+        //Console.Write("Description: ");
+        //string stDesc = Console.ReadLine()!;
+
+        //decimal stWeight;
+        //do
+        //{ Console.Write("Weight: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out stWeight));
+
+        //decimal stFee;
+        //do
+        //{ Console.Write("Delivery Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out stFee));
+
+        //Console.Write("City: ");
+        //string stCity = Console.ReadLine()!;
+
+        //Console.Write("Street: ");
+        //string stStreet = Console.ReadLine()!;
+
+        //int stBuilding;
+        //do
+        //{ Console.Write("Building Number: ");
+        //}
+        //while (!int.TryParse(Console.ReadLine(), out stBuilding));
+
+        //DeliveryAddress standardAddress = new DeliveryAddress(stCity, stStreet, stBuilding);
+
+        //StandardShipment standard = new StandardShipment( stCode, stDesc, stWeight, stFee, standardAddress);
+
+
+        //// Express Shipment 
+
+        //Console.WriteLine("\n--- Enter Express Shipment Data ---");
+
+        //Console.Write("Tracking Code: ");
+        //string exCode = Console.ReadLine()!;
+
+        //Console.Write("Description: ");
+        //string exDesc = Console.ReadLine()!;
+
+        //decimal exWeight;
+        //do
+        //{ Console.Write("Weight: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out exWeight));
+
+        //decimal exFee;
+        //do
+        //{ Console.Write("Delivery Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out exFee));
+
+        //decimal extraFee;
+        //do
+        //{ Console.Write("Extra Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out extraFee));
+
+        //Console.Write("City: ");
+        //string exCity = Console.ReadLine()!;
+
+        //Console.Write("Street: ");
+        //string exStreet = Console.ReadLine()!;
+
+        //int exBuilding;
+        //do
+        //{ Console.Write("Building Number: ");
+        //}
+        //while (!int.TryParse(Console.ReadLine(), out exBuilding));
+
+        //DeliveryAddress expressAddress = new DeliveryAddress(exCity, exStreet, exBuilding);
+
+        //ExpressShipment express = new ExpressShipment( exCode, exDesc, exWeight, exFee, expressAddress, extraFee);
+
+
+        ////International Shipment
+
+        //Console.WriteLine("\n--- Enter International Shipment Data ---");
+
+        //Console.Write("Tracking Code: ");
+        //string inCode = Console.ReadLine()!;
+
+        //Console.Write("Description: ");
+        //string inDesc = Console.ReadLine()!;
+
+        //decimal inWeight;
+        //do
+        //{ Console.Write("Weight: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out inWeight));
+
+        //decimal inFee;
+        //do
+        //{ Console.Write("Delivery Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out inFee));
+
+        //Console.Write("Destination Country: ");
+        //string country = Console.ReadLine()!;
+
+        //decimal customsFee;
+        //do
+        //{ Console.Write("Customs Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out customsFee));
+
+        //Console.Write("City: ");
+        //string inCity = Console.ReadLine()!;
+
+        //Console.Write("Street: ");
+        //string inStreet = Console.ReadLine()!;
+
+        //int inBuilding;
+        //do
+        //{ Console.Write("Building Number: ");
+        //}
+        //while (!int.TryParse(Console.ReadLine(), out inBuilding));
+
+        //DeliveryAddress internationalAddress = new DeliveryAddress(inCity, inStreet, inBuilding);
+
+        //InternationalShipment international = new InternationalShipment( inCode, inDesc, inWeight, inFee, internationalAddress, country,
+        //                                          customsFee);
+
+
+
+        //Console.WriteLine();
+        //if (center.AddShipment(standard)) Console.WriteLine("Shipment Added Successfully.");
+        //if (center.AddShipment(express)) Console.WriteLine("Shipment Added Successfully.");
+        //if (center.AddShipment(international)) Console.WriteLine("Shipment Added Successfully.");
+        //Console.WriteLine();
+
+        //center.PrintAllShipments();
+
+
+        ////Search 
+
+        //Console.Write("\nEnter Tracking Code To Search: ");
+        //string searchCode = Console.ReadLine()!;
+
+        //Shipment? foundShipment = center[searchCode];
+
+        //if (foundShipment != null)
+        //{
+        //    Console.WriteLine("\nShipment Found:");
+        //    foundShipment.PrintShipment();
+        //}
+        //else
+        //{
+        //    Console.WriteLine("Shipment not found.");
+        //}
+
+
+        //// Remove 
+
+        //Console.Write("\nEnter Tracking Code To Remove: ");
+        //string removeCode = Console.ReadLine()!;
+
+        //bool removed = center.RemoveShipment(removeCode);
+
+        //if (removed)
+        //{
+        //    Console.WriteLine("Shipment Removed Successfully.\n");
+        //}
+        //else
+        //{
+        //    Console.WriteLine("Shipment not found.");
+        //}
+
+
+        //// Remaining 
+        //Console.WriteLine("\n========================================");
+        //Console.WriteLine("Remaining Shipments");
+        //Console.WriteLine("========================================");
+
+        //center.PrintAllShipments();
+
+        #endregion
+        #endregion
+
+        #endregion
+
+        #region Assignment_6
+
+        #region Part01
+
+        #region Question_1
+
+        /*a) What is the difference between Method Overloading and Method Overriding?*/
+
+        //Answer ->
+        // Method Overloading:
+        // 1-> Same method name in the same class.
+        // 2-> Different parameters.
+        // 3-> It is Compile-Time Polymorphism.
+
+        // Method Overriding:
+        // 1-> A child class provides  new implementation for method from the parent class.
+        // 2-> The method must be virtual in the parent class and override in the child class.
+        // 3-> It is Runtime Polymorphism.
+
+
+        /*b) What is the difference between Static Binding and Dynamic Binding?*/
+        //Answer->
+        // Static Binding:
+        // 1-> The method call is decided at compile time.
+        // 2-> It is mainly used with method overloading.
+
+        // Dynamic Binding:
+        // 1-> The method call is decided at runtime.
+        // 2-> It is used with method overriding and virtual methods.
+
+
+        #endregion
+
+        #region Question_2
+
+        /*a) What is the purpose of the sealed keyword when applied to a class?*/
+
+        //Answer ->
+        // 1-> It prevents the class from being inherited.
+        // 2-> No other class can inherit from sealed class.
+
+
+        /*b) What is the difference between a sealed class and a sealed method?*/
+
+        //Answer ->
+        // Sealed Class:
+        // 1-> Prevents inheritance from the class.
+        // 2-> No class can inherit from it.
+
+        // Sealed Method:
+        // 1-> Prevents further overriding of the method.
+        // 2-> The class itself can still be inherited.
+
+
+        /*c) Can a sealed method be overridden? Why?*/
+
+        //Answer ->
+        // No, the sealed method cannot be overridden because the sealed keyword prevents further overriding of that method in derived classes.
+
+        #endregion
+
+        #endregion
+
+        #region Part02
+        /*9  Main() Checklist
+           ☐  a. Create a Driver.
+           ☐  b. Create a DeliveryCenter.
+           ☐  c. Assign the Driver to the DeliveryCenter.
+           ☐  d. Create one StandardShipment.
+           ☐  e. Create one ExpressShipment.
+           ☐  f. Create one InternationalShipment.
+           ☐  g. Add all shipments to the DeliveryCenter.
+           ☐  h. Print all shipments using PrintAllShipments().
+           ☐  i. Call DeliveryHelper.PrintShipmentDetails() for each shipment.
+           ☐  j. Demonstrate both versions of UpdateWeight().
+           ☐  k. Build a Shipment[] holding mixed types and print all of them in a loop.
+           ☐  l. Demonstrate the sealed class and sealed method (comments or code).*/
+
+        // a. Create a Driver
+        Console.Write("Enter Driver Name: ");
+        string driverName = Console.ReadLine()!;
+
+        Driver driver = new Driver(driverName);
+
+
+        // b. Create a DeliveryCenter
         Console.Write("Enter Delivery Center Name: ");
         string centerName = Console.ReadLine()!;
 
         DeliveryCenter center = new DeliveryCenter(centerName);
 
 
-        // Standard Shipment 
+        // c. Assign the Driver to the DeliveryCenter
+        center.AssignedDriver = driver;
 
+        // d. Create one StandardShipment
         Console.WriteLine("\n--- Enter Standard Shipment Data ---");
 
         Console.Write("Tracking Code: ");
@@ -270,13 +555,15 @@ internal class Program
 
         decimal stWeight;
         do
-        { Console.Write("Weight: ");
+        {
+            Console.Write("Weight: ");
         }
         while (!decimal.TryParse(Console.ReadLine(), out stWeight));
 
         decimal stFee;
         do
-        { Console.Write("Delivery Fee: ");
+        {
+            Console.Write("Delivery Fee: ");
         }
         while (!decimal.TryParse(Console.ReadLine(), out stFee));
 
@@ -288,17 +575,16 @@ internal class Program
 
         int stBuilding;
         do
-        { Console.Write("Building Number: ");
+        {
+            Console.Write("Building Number: ");
         }
         while (!int.TryParse(Console.ReadLine(), out stBuilding));
 
         DeliveryAddress standardAddress = new DeliveryAddress(stCity, stStreet, stBuilding);
+        StandardShipment standard = new StandardShipment(stCode, stDesc, stWeight, stFee, standardAddress);
 
-        StandardShipment standard = new StandardShipment( stCode, stDesc, stWeight, stFee, standardAddress);
 
-
-        // Express Shipment 
-
+        // e. Create one ExpressShipment
         Console.WriteLine("\n--- Enter Express Shipment Data ---");
 
         Console.Write("Tracking Code: ");
@@ -309,19 +595,22 @@ internal class Program
 
         decimal exWeight;
         do
-        { Console.Write("Weight: ");
+        {
+            Console.Write("Weight: ");
         }
         while (!decimal.TryParse(Console.ReadLine(), out exWeight));
 
         decimal exFee;
         do
-        { Console.Write("Delivery Fee: ");
+        {
+            Console.Write("Delivery Fee: ");
         }
         while (!decimal.TryParse(Console.ReadLine(), out exFee));
 
         decimal extraFee;
         do
-        { Console.Write("Extra Fee: ");
+        {
+            Console.Write("Extra Fee: ");
         }
         while (!decimal.TryParse(Console.ReadLine(), out extraFee));
 
@@ -333,17 +622,16 @@ internal class Program
 
         int exBuilding;
         do
-        { Console.Write("Building Number: ");
+        {
+            Console.Write("Building Number: ");
         }
         while (!int.TryParse(Console.ReadLine(), out exBuilding));
 
         DeliveryAddress expressAddress = new DeliveryAddress(exCity, exStreet, exBuilding);
+        ExpressShipment express = new ExpressShipment(exCode, exDesc, exWeight, exFee, expressAddress, extraFee);
 
-        ExpressShipment express = new ExpressShipment( exCode, exDesc, exWeight, exFee, expressAddress, extraFee);
 
-
-        //International Shipment
-
+        // f. Create one InternationalShipment
         Console.WriteLine("\n--- Enter International Shipment Data ---");
 
         Console.Write("Tracking Code: ");
@@ -354,13 +642,15 @@ internal class Program
 
         decimal inWeight;
         do
-        { Console.Write("Weight: ");
+        {
+            Console.Write("Weight: ");
         }
         while (!decimal.TryParse(Console.ReadLine(), out inWeight));
 
         decimal inFee;
         do
-        { Console.Write("Delivery Fee: ");
+        {
+            Console.Write("Delivery Fee: ");
         }
         while (!decimal.TryParse(Console.ReadLine(), out inFee));
 
@@ -369,7 +659,8 @@ internal class Program
 
         decimal customsFee;
         do
-        { Console.Write("Customs Fee: ");
+        {
+            Console.Write("Customs Fee: ");
         }
         while (!decimal.TryParse(Console.ReadLine(), out customsFee));
 
@@ -381,72 +672,84 @@ internal class Program
 
         int inBuilding;
         do
-        { Console.Write("Building Number: ");
+        {
+            Console.Write("Building Number: ");
         }
         while (!int.TryParse(Console.ReadLine(), out inBuilding));
 
         DeliveryAddress internationalAddress = new DeliveryAddress(inCity, inStreet, inBuilding);
+        InternationalShipment international = new InternationalShipment(inCode, inDesc, inWeight, inFee, internationalAddress, country, customsFee);
 
-        InternationalShipment international = new InternationalShipment( inCode, inDesc, inWeight, inFee, internationalAddress, country,
-                                                  customsFee);
-
-
-
+        // g. Add all shipments to the DeliveryCenter
         Console.WriteLine();
         if (center.AddShipment(standard)) Console.WriteLine("Shipment Added Successfully.");
         if (center.AddShipment(express)) Console.WriteLine("Shipment Added Successfully.");
         if (center.AddShipment(international)) Console.WriteLine("Shipment Added Successfully.");
-        Console.WriteLine();
 
+
+        // h. Print all shipments using PrintAllShipments()
         center.PrintAllShipments();
 
 
-        //Search 
-
-        Console.Write("\nEnter Tracking Code To Search: ");
-        string searchCode = Console.ReadLine()!;
-
-        Shipment? foundShipment = center[searchCode];
-
-        if (foundShipment != null)
-        {
-            Console.WriteLine("\nShipment Found:");
-            foundShipment.PrintShipment();
-        }
-        else
-        {
-            Console.WriteLine("Shipment not found.");
-        }
-
-
-        // Remove 
-
-        Console.Write("\nEnter Tracking Code To Remove: ");
-        string removeCode = Console.ReadLine()!;
-
-        bool removed = center.RemoveShipment(removeCode);
-
-        if (removed)
-        {
-            Console.WriteLine("Shipment Removed Successfully.\n");
-        }
-        else
-        {
-            Console.WriteLine("Shipment not found.");
-        }
-
-
-        // Remaining 
+        // i. Call DeliveryHelper.PrintShipmentDetails() for each shipment
         Console.WriteLine("\n========================================");
-        Console.WriteLine("Remaining Shipments");
-        Console.WriteLine("========================================");
+        Console.WriteLine("Printing Using DeliveryHelper...\n");
 
-        center.PrintAllShipments();
+        DeliveryHelper.PrintShipmentDetails(standard);
+        DeliveryHelper.PrintShipmentDetails(express);
+        DeliveryHelper.PrintShipmentDetails(international);
+
+        // j. Demonstrate both versions of UpdateWeight()
+        Console.WriteLine("\n========================================");
+        Console.WriteLine("Updating Weight...\n");
+
+        Console.WriteLine($"Original Weight : {standard.Weight} KG");
+
+        decimal newWeight;
+        do
+        {
+            Console.Write("Enter New Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out newWeight));
+
+        standard.UpdateWeight(newWeight);
+        Console.WriteLine($"Updated Weight : {standard.Weight} KG");
+
+        decimal packingWeight;
+        do
+        {
+            Console.Write("Enter Packing Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out packingWeight));
+
+        standard.UpdateWeight(newWeight, packingWeight);
+        Console.WriteLine($"Updated Weight After Packing : {standard.Weight} KG");
+
+        // k. Build a Shipment[] holding mixed types and print all of them in a loop
+        Console.WriteLine("\n========================================");
+        Console.WriteLine("Printing Using Shipment[]...\n");
+
+        Shipment[] mixedShipments = { standard, express, international };
+
+        foreach (Shipment s in mixedShipments)
+        {
+            s.PrintShipment();
+            Console.WriteLine();
+        }
+
+        // l. Demonstrate the sealed class and sealed method
+
+        //Answer ->  CompletedShipment is sealed class,so it cannot be inherited by another class.
+
+        // GenerateCustomsReport() is sealed in PriorityInternationalShipment,so it cannot be overridden again in derived class.
+
+        Console.WriteLine("\n========================================");
 
         #endregion
-        #endregion
 
         #endregion
+
+
 
     }
 }

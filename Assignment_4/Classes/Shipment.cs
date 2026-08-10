@@ -48,6 +48,7 @@ namespace Assignment_4.Classes
             }
         }
 
+    
         public virtual decimal EstimatedCost
         {
             get { return DeliveryFee + (Weight * 5); }
@@ -87,6 +88,17 @@ namespace Assignment_4.Classes
         public void UpdateDeliveryFee(decimal newFee)
         {
             DeliveryFee = (newFee > 0) ? newFee : DeliveryFee;
+        }
+
+        //Assignment_6
+        public void UpdateWeight(decimal newWeight)
+        {
+            Weight = newWeight;
+        }
+
+        public void UpdateWeight(decimal newWeight, decimal packingWeight)
+        {
+            Weight = newWeight + packingWeight;
         }
 
         public  virtual void PrintShipment()

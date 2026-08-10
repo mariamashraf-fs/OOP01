@@ -41,6 +41,12 @@ namespace Assignment_4.Classes
             CustomsFee = customsFee;
         }
 
+        //Assignment_6
+        public virtual void GenerateCustomsReport()
+        {
+            Console.WriteLine($"Customs Report for {TrackingCode} - Country: {DestinationCountry}, Fee: {CustomsFee} EGP");
+        }
+
         public override void PrintShipment()
         {
             Console.WriteLine("International Shipment\n");
