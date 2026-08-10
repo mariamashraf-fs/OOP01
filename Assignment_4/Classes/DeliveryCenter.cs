@@ -18,6 +18,8 @@ namespace Assignment_4.Classes
             shipments = new Shipment?[20];
         }
 
+        public Driver? AssignedDriver { get; set; }
+
 
         // Add Shipment
         public bool AddShipment(Shipment shipment)
@@ -96,6 +98,11 @@ namespace Assignment_4.Classes
             Console.WriteLine("\n========================================");
             Console.WriteLine($"Delivery Center : {CenterName}");
             Console.WriteLine("========================================\n");
+
+            //Assignment_6
+            Console.WriteLine($"Driver : {AssignedDriver?.Name}");
+
+            Console.WriteLine("---------------------------------------------");
 
             for (int i = 0; i < shipments.Length; i++)
             {

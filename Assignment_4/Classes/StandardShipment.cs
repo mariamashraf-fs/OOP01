@@ -8,10 +8,7 @@ namespace Assignment_4.Classes
     public class StandardShipment : Shipment
     {
         public StandardShipment (string tcode, string desc, decimal weight, decimal fee, DeliveryAddress destination)
-            : base(tcode, desc, weight, fee, destination)
-        {
-
-        }
+            : base(tcode, desc, weight, fee, destination) { }
 
         public override void PrintShipment()
         {

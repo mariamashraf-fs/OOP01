@@ -1,6 +1,7 @@
 ﻿using Assignment_4.Classes;
 using Assignment_4.Structs;
 using System.Drawing;
+using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Assignment_4;
@@ -508,6 +509,241 @@ internal class Program
         // No, the sealed method cannot be overridden because the sealed keyword prevents further overriding of that method in derived classes.
 
         #endregion
+
+        #endregion
+
+        #region Part02
+        /*9  Main() Checklist
+           ☐  a. Create a Driver.
+           ☐  b. Create a DeliveryCenter.
+           ☐  c. Assign the Driver to the DeliveryCenter.
+           ☐  d. Create one StandardShipment.
+           ☐  e. Create one ExpressShipment.
+           ☐  f. Create one InternationalShipment.
+           ☐  g. Add all shipments to the DeliveryCenter.
+           ☐  h. Print all shipments using PrintAllShipments().
+           ☐  i. Call DeliveryHelper.PrintShipmentDetails() for each shipment.
+           ☐  j. Demonstrate both versions of UpdateWeight().
+           ☐  k. Build a Shipment[] holding mixed types and print all of them in a loop.
+           ☐  l. Demonstrate the sealed class and sealed method (comments or code).*/
+
+        // a. Create a Driver
+        Console.Write("Enter Driver Name: ");
+        string driverName = Console.ReadLine()!;
+
+        Driver driver = new Driver(driverName);
+
+
+        // b. Create a DeliveryCenter
+        Console.Write("Enter Delivery Center Name: ");
+        string centerName = Console.ReadLine()!;
+
+        DeliveryCenter center = new DeliveryCenter(centerName);
+
+
+        // c. Assign the Driver to the DeliveryCenter
+        center.AssignedDriver = driver;
+
+        // d. Create one StandardShipment
+        Console.WriteLine("\n--- Enter Standard Shipment Data ---");
+
+        Console.Write("Tracking Code: ");
+        string stCode = Console.ReadLine()!;
+
+        Console.Write("Description: ");
+        string stDesc = Console.ReadLine()!;
+
+        decimal stWeight;
+        do
+        {
+            Console.Write("Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out stWeight));
+
+        decimal stFee;
+        do
+        {
+            Console.Write("Delivery Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out stFee));
+
+        Console.Write("City: ");
+        string stCity = Console.ReadLine()!;
+
+        Console.Write("Street: ");
+        string stStreet = Console.ReadLine()!;
+
+        int stBuilding;
+        do
+        {
+            Console.Write("Building Number: ");
+        }
+        while (!int.TryParse(Console.ReadLine(), out stBuilding));
+
+        DeliveryAddress standardAddress = new DeliveryAddress(stCity, stStreet, stBuilding);
+        StandardShipment standard = new StandardShipment(stCode, stDesc, stWeight, stFee, standardAddress);
+
+
+        // e. Create one ExpressShipment
+        Console.WriteLine("\n--- Enter Express Shipment Data ---");
+
+        Console.Write("Tracking Code: ");
+        string exCode = Console.ReadLine()!;
+
+        Console.Write("Description: ");
+        string exDesc = Console.ReadLine()!;
+
+        decimal exWeight;
+        do
+        {
+            Console.Write("Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out exWeight));
+
+        decimal exFee;
+        do
+        {
+            Console.Write("Delivery Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out exFee));
+
+        decimal extraFee;
+        do
+        {
+            Console.Write("Extra Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out extraFee));
+
+        Console.Write("City: ");
+        string exCity = Console.ReadLine()!;
+
+        Console.Write("Street: ");
+        string exStreet = Console.ReadLine()!;
+
+        int exBuilding;
+        do
+        {
+            Console.Write("Building Number: ");
+        }
+        while (!int.TryParse(Console.ReadLine(), out exBuilding));
+
+        DeliveryAddress expressAddress = new DeliveryAddress(exCity, exStreet, exBuilding);
+        ExpressShipment express = new ExpressShipment(exCode, exDesc, exWeight, exFee, expressAddress, extraFee);
+
+
+        // f. Create one InternationalShipment
+        Console.WriteLine("\n--- Enter International Shipment Data ---");
+
+        Console.Write("Tracking Code: ");
+        string inCode = Console.ReadLine()!;
+
+        Console.Write("Description: ");
+        string inDesc = Console.ReadLine()!;
+
+        decimal inWeight;
+        do
+        {
+            Console.Write("Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out inWeight));
+
+        decimal inFee;
+        do
+        {
+            Console.Write("Delivery Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out inFee));
+
+        Console.Write("Destination Country: ");
+        string country = Console.ReadLine()!;
+
+        decimal customsFee;
+        do
+        {
+            Console.Write("Customs Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out customsFee));
+
+        Console.Write("City: ");
+        string inCity = Console.ReadLine()!;
+
+        Console.Write("Street: ");
+        string inStreet = Console.ReadLine()!;
+
+        int inBuilding;
+        do
+        {
+            Console.Write("Building Number: ");
+        }
+        while (!int.TryParse(Console.ReadLine(), out inBuilding));
+
+        DeliveryAddress internationalAddress = new DeliveryAddress(inCity, inStreet, inBuilding);
+        InternationalShipment international = new InternationalShipment(inCode, inDesc, inWeight, inFee, internationalAddress, country, customsFee);
+
+        // g. Add all shipments to the DeliveryCenter
+        Console.WriteLine();
+        if (center.AddShipment(standard)) Console.WriteLine("Shipment Added Successfully.");
+        if (center.AddShipment(express)) Console.WriteLine("Shipment Added Successfully.");
+        if (center.AddShipment(international)) Console.WriteLine("Shipment Added Successfully.");
+
+
+        // h. Print all shipments using PrintAllShipments()
+        center.PrintAllShipments();
+
+
+        // i. Call DeliveryHelper.PrintShipmentDetails() for each shipment
+        Console.WriteLine("\n========================================");
+        Console.WriteLine("Printing Using DeliveryHelper...\n");
+
+        DeliveryHelper.PrintShipmentDetails(standard);
+        DeliveryHelper.PrintShipmentDetails(express);
+        DeliveryHelper.PrintShipmentDetails(international);
+
+        // j. Demonstrate both versions of UpdateWeight()
+        Console.WriteLine("\n========================================");
+        Console.WriteLine("Updating Weight...\n");
+
+        Console.WriteLine($"Original Weight : {standard.Weight} KG");
+
+        decimal newWeight;
+        do
+        {
+            Console.Write("Enter New Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out newWeight));
+
+        standard.UpdateWeight(newWeight);
+        Console.WriteLine($"Updated Weight : {standard.Weight} KG");
+
+        decimal packingWeight;
+        do
+        {
+            Console.Write("Enter Packing Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out packingWeight));
+
+        standard.UpdateWeight(newWeight, packingWeight);
+        Console.WriteLine($"Updated Weight After Packing : {standard.Weight} KG");
+
+        // k. Build a Shipment[] holding mixed types and print all of them in a loop
+        Console.WriteLine("\n========================================");
+        Console.WriteLine("Printing Using Shipment[]...\n");
+
+        Shipment[] mixedShipments = { standard, express, international };
+
+        foreach (Shipment s in mixedShipments)
+        {
+            s.PrintShipment();
+            Console.WriteLine();
+        }
+
+        // l. Demonstrate the sealed class and sealed method
+
+        //Answer ->  CompletedShipment is sealed class,so it cannot be inherited by another class.
+
+        // GenerateCustomsReport() is sealed in PriorityInternationalShipment,so it cannot be overridden again in derived class.
+
+        Console.WriteLine("\n========================================");
 
         #endregion
 
