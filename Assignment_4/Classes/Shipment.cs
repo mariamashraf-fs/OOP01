@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assignment_4.Classes
 {
-    public class Shipment
+    public abstract class Shipment
     {
         //private fields
       
@@ -48,11 +48,8 @@ namespace Assignment_4.Classes
             }
         }
 
-    
-        public virtual decimal EstimatedCost
-        {
-            get { return DeliveryFee + (Weight * 5); }
-        }
+
+        public abstract decimal EstimatedCost { get; }
 
         // Con_1
         public Shipment(string tcode)
@@ -101,15 +98,7 @@ namespace Assignment_4.Classes
             Weight = newWeight + packingWeight;
         }
 
-        public  virtual void PrintShipment()
-        {
-            Console.WriteLine("============= Shipment Details =============");
-            Console.WriteLine($"Tracking Code  : {TrackingCode}");
-            Console.WriteLine($"Description    : {Description}");
-            Console.WriteLine($"Weight         : {Weight} KG");
-            Console.WriteLine($"Delivery Fee   : {DeliveryFee} EGP");
-            Console.WriteLine($"Destination    : {Destination.GetFullAddress()}");
-        }
-    
+        public abstract void PrintShipment();
+
     }
 }

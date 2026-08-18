@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Assignment_4.Interfaces;
 
 namespace Assignment_4.Classes
 {
-
     public class DeliveryCenter
     {
         private Shipment?[] shipments;
@@ -40,13 +40,17 @@ namespace Assignment_4.Classes
         // Integer Indexer
         public Shipment? this[int index]
         {
-            get { if (index >= 0 && index < shipments.Length)
+            get
+            {
+                if (index >= 0 && index < shipments.Length)
                     return shipments[index];
 
                 return null;
             }
 
-            set { if (index >= 0 && index < shipments.Length)
+            set
+            {
+                if (index >= 0 && index < shipments.Length)
                     shipments[index] = value;
             }
         }
@@ -100,9 +104,9 @@ namespace Assignment_4.Classes
             Console.WriteLine("========================================\n");
 
             //Assignment_6
-            Console.WriteLine($"Driver : {AssignedDriver?.Name}");
+            //Console.WriteLine($"Driver : {AssignedDriver?.Name}");
 
-            Console.WriteLine("---------------------------------------------");
+            //Console.WriteLine("---------------------------------------------");
 
             for (int i = 0; i < shipments.Length; i++)
             {
@@ -112,6 +116,21 @@ namespace Assignment_4.Classes
                 {
                     shipment.PrintShipment();
                     Console.WriteLine();
+                }
+            }
+        }
+
+        //Assignment_7
+        public void PrintTrackingStatuses()
+        {
+            Console.WriteLine("\n========================================");
+            Console.WriteLine("\nTracking Status");
+
+            for (int i = 0; i < shipments.Length; i++)
+            {
+                if (shipments[i] is ITrackable trackable)
+                {
+                    Console.WriteLine(trackable.GetTrackingStatus());
                 }
             }
         }

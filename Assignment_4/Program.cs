@@ -1,8 +1,11 @@
 ﻿using Assignment_4.Classes;
+using Assignment_4.Interfaces;
 using Assignment_4.Structs;
 using System.Drawing;
+using System.Net.NetworkInformation;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Assignment_4;
 
@@ -527,24 +530,303 @@ internal class Program
            ☐  k. Build a Shipment[] holding mixed types and print all of them in a loop.
            ☐  l. Demonstrate the sealed class and sealed method (comments or code).*/
 
-        // a. Create a Driver
-        Console.Write("Enter Driver Name: ");
-        string driverName = Console.ReadLine()!;
+        //// a. Create a Driver
+        //Console.Write("Enter Driver Name: ");
+        //string driverName = Console.ReadLine()!;
 
-        Driver driver = new Driver(driverName);
+        //Driver driver = new Driver(driverName);
 
 
-        // b. Create a DeliveryCenter
+        //// b. Create a DeliveryCenter
+        //Console.Write("Enter Delivery Center Name: ");
+        //string centerName = Console.ReadLine()!;
+
+        //DeliveryCenter center = new DeliveryCenter(centerName);
+
+
+        //// c. Assign the Driver to the DeliveryCenter
+        //center.AssignedDriver = driver;
+
+        //// d. Create one StandardShipment
+        //Console.WriteLine("\n--- Enter Standard Shipment Data ---");
+
+        //Console.Write("Tracking Code: ");
+        //string stCode = Console.ReadLine()!;
+
+        //Console.Write("Description: ");
+        //string stDesc = Console.ReadLine()!;
+
+        //decimal stWeight;
+        //do
+        //{
+        //    Console.Write("Weight: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out stWeight));
+
+        //decimal stFee;
+        //do
+        //{
+        //    Console.Write("Delivery Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out stFee));
+
+        //Console.Write("City: ");
+        //string stCity = Console.ReadLine()!;
+
+        //Console.Write("Street: ");
+        //string stStreet = Console.ReadLine()!;
+
+        //int stBuilding;
+        //do
+        //{
+        //    Console.Write("Building Number: ");
+        //}
+        //while (!int.TryParse(Console.ReadLine(), out stBuilding));
+
+        //DeliveryAddress standardAddress = new DeliveryAddress(stCity, stStreet, stBuilding);
+        //StandardShipment standard = new StandardShipment(stCode, stDesc, stWeight, stFee, standardAddress);
+
+
+        //// e. Create one ExpressShipment
+        //Console.WriteLine("\n--- Enter Express Shipment Data ---");
+
+        //Console.Write("Tracking Code: ");
+        //string exCode = Console.ReadLine()!;
+
+        //Console.Write("Description: ");
+        //string exDesc = Console.ReadLine()!;
+
+        //decimal exWeight;
+        //do
+        //{
+        //    Console.Write("Weight: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out exWeight));
+
+        //decimal exFee;
+        //do
+        //{
+        //    Console.Write("Delivery Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out exFee));
+
+        //decimal extraFee;
+        //do
+        //{
+        //    Console.Write("Extra Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out extraFee));
+
+        //Console.Write("City: ");
+        //string exCity = Console.ReadLine()!;
+
+        //Console.Write("Street: ");
+        //string exStreet = Console.ReadLine()!;
+
+        //int exBuilding;
+        //do
+        //{
+        //    Console.Write("Building Number: ");
+        //}
+        //while (!int.TryParse(Console.ReadLine(), out exBuilding));
+
+        //DeliveryAddress expressAddress = new DeliveryAddress(exCity, exStreet, exBuilding);
+        //ExpressShipment express = new ExpressShipment(exCode, exDesc, exWeight, exFee, expressAddress, extraFee);
+
+
+        //// f. Create one InternationalShipment
+        //Console.WriteLine("\n--- Enter International Shipment Data ---");
+
+        //Console.Write("Tracking Code: ");
+        //string inCode = Console.ReadLine()!;
+
+        //Console.Write("Description: ");
+        //string inDesc = Console.ReadLine()!;
+
+        //decimal inWeight;
+        //do
+        //{
+        //    Console.Write("Weight: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out inWeight));
+
+        //decimal inFee;
+        //do
+        //{
+        //    Console.Write("Delivery Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out inFee));
+
+        //Console.Write("Destination Country: ");
+        //string country = Console.ReadLine()!;
+
+        //decimal customsFee;
+        //do
+        //{
+        //    Console.Write("Customs Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out customsFee));
+
+        //Console.Write("City: ");
+        //string inCity = Console.ReadLine()!;
+
+        //Console.Write("Street: ");
+        //string inStreet = Console.ReadLine()!;
+
+        //int inBuilding;
+        //do
+        //{
+        //    Console.Write("Building Number: ");
+        //}
+        //while (!int.TryParse(Console.ReadLine(), out inBuilding));
+
+        //DeliveryAddress internationalAddress = new DeliveryAddress(inCity, inStreet, inBuilding);
+        //InternationalShipment international = new InternationalShipment(inCode, inDesc, inWeight, inFee, internationalAddress, country, customsFee);
+
+        //// g. Add all shipments to the DeliveryCenter
+        //Console.WriteLine();
+        //if (center.AddShipment(standard)) Console.WriteLine("Shipment Added Successfully.");
+        //if (center.AddShipment(express)) Console.WriteLine("Shipment Added Successfully.");
+        //if (center.AddShipment(international)) Console.WriteLine("Shipment Added Successfully.");
+
+
+        //// h. Print all shipments using PrintAllShipments()
+        //center.PrintAllShipments();
+
+
+        //// i. Call DeliveryHelper.PrintShipmentDetails() for each shipment
+        //Console.WriteLine("\n========================================");
+        //Console.WriteLine("Printing Using DeliveryHelper...\n");
+
+        //DeliveryHelper.PrintShipmentDetails(standard);
+        //DeliveryHelper.PrintShipmentDetails(express);
+        //DeliveryHelper.PrintShipmentDetails(international);
+
+        //// j. Demonstrate both versions of UpdateWeight()
+        //Console.WriteLine("\n========================================");
+        //Console.WriteLine("Updating Weight...\n");
+
+        //Console.WriteLine($"Original Weight : {standard.Weight} KG");
+
+        //decimal newWeight;
+        //do
+        //{
+        //    Console.Write("Enter New Weight: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out newWeight));
+
+        //standard.UpdateWeight(newWeight);
+        //Console.WriteLine($"Updated Weight : {standard.Weight} KG");
+
+        //decimal packingWeight;
+        //do
+        //{
+        //    Console.Write("Enter Packing Weight: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out packingWeight));
+
+        //standard.UpdateWeight(newWeight, packingWeight);
+        //Console.WriteLine($"Updated Weight After Packing : {standard.Weight} KG");
+
+        //// k. Build a Shipment[] holding mixed types and print all of them in a loop
+        //Console.WriteLine("\n========================================");
+        //Console.WriteLine("Printing Using Shipment[]...\n");
+
+        //Shipment[] mixedShipments = { standard, express, international };
+
+        //foreach (Shipment s in mixedShipments)
+        //{
+        //    s.PrintShipment();
+        //    Console.WriteLine();
+        //}
+
+        //// l. Demonstrate the sealed class and sealed method
+
+        ////Answer ->  CompletedShipment is sealed class,so it cannot be inherited by another class.
+
+        //// GenerateCustomsReport() is sealed in PriorityInternationalShipment,so it cannot be overridden again in derived class.
+
+        //Console.WriteLine("\n========================================");
+
+        #endregion
+
+        #endregion
+
+        #region Assignment_7
+
+        #region Part01
+
+        #region Question_1
+        /*a) What is Abstraction in Object-Oriented Programming?*/
+
+        //Answer -> 
+        // Abstraction is the process of hiding unnecessary implementation details
+        // and showing only the essential features and behavior of an object.
+
+
+        /*b) Why is abstraction considered one of the four pillars of OOP?*/
+
+        //Answer ->
+        //Because it helps simplify complex systems by hiding implementation details and exposing only what  is necessary and
+        //it makes the code easier to understand, maintain, and use.
+
+        #endregion
+
+        #region Question_2
+        /*a) What is the difference between an Abstract Class and an Interface?*/
+
+        // Answer ->
+        // Abstract Class:
+        // 1 -> It can contain both abstract and non-abstract methods and properties.
+        // 2 -> It can contain fields and constructors.
+        // 3 ->Class can inherit from only one abstract class.
+        // 4 -> It is used when related classes share common state and behavior.
+
+        // Interface:
+        // 1 -> It defines contract that implementing classes must follow.
+        // 2 -> It does not represent shared object state like abstract class.
+        // 3 -> A class can implement multiple interfaces.
+        // 4 -> It is used when different classes need to provide the same behavior or capability.
+
+
+        /*b) When would you choose an Interface instead of an Abstract Class?*/
+
+        // Answer ->
+        // I would choose Interface when different or unrelated classes need to follow the same contract
+        // or provide the same capability, especially when class may need to implement more than one behavior.
+
+        /*c) Can a class inherit from multiple abstract classes? Can it implement multiple interfaces?*/
+
+        // Answer ->
+        // No, a class cannot inherit from multiple abstract classes because
+        // C# supports single class inheritance.
+
+        // Yes, a class can implement multiple interfaces because C# supports
+        // multiple interface implementation.
+
+        #endregion
+
+        #endregion
+
+        #region Part02
+        /*8 Main() Checklist
+        ☐ a. Create one StandardShipment.
+        ☐ b. Create one ExpressShipment.
+        ☐ c. Create one InternationalShipment.
+        ☐ d. Add all shipments to the DeliveryCenter.
+        ☐ e. Print all shipment details.
+        ☐ f. Print the tracking status of every shipment.
+        ☐ g. Print the insurance cost of every shipment.
+        ☐ h. Store the shipment objects in an ITrackable[] array and print their tracking statuses.
+        ☐ i. Store the shipment objects in an IInsurable[] array and print their insurance values.*/
+
         Console.Write("Enter Delivery Center Name: ");
         string centerName = Console.ReadLine()!;
 
         DeliveryCenter center = new DeliveryCenter(centerName);
 
 
-        // c. Assign the Driver to the DeliveryCenter
-        center.AssignedDriver = driver;
-
-        // d. Create one StandardShipment
+        // a. Create one StandardShipment
         Console.WriteLine("\n--- Enter Standard Shipment Data ---");
 
         Console.Write("Tracking Code: ");
@@ -584,7 +866,7 @@ internal class Program
         StandardShipment standard = new StandardShipment(stCode, stDesc, stWeight, stFee, standardAddress);
 
 
-        // e. Create one ExpressShipment
+        // b. Create one ExpressShipment
         Console.WriteLine("\n--- Enter Express Shipment Data ---");
 
         Console.Write("Tracking Code: ");
@@ -631,7 +913,7 @@ internal class Program
         ExpressShipment express = new ExpressShipment(exCode, exDesc, exWeight, exFee, expressAddress, extraFee);
 
 
-        // f. Create one InternationalShipment
+        // c. Create one InternationalShipment
         Console.WriteLine("\n--- Enter International Shipment Data ---");
 
         Console.Write("Tracking Code: ");
@@ -680,70 +962,63 @@ internal class Program
         DeliveryAddress internationalAddress = new DeliveryAddress(inCity, inStreet, inBuilding);
         InternationalShipment international = new InternationalShipment(inCode, inDesc, inWeight, inFee, internationalAddress, country, customsFee);
 
-        // g. Add all shipments to the DeliveryCenter
+
+        // d. Add all shipments to the DeliveryCenter
         Console.WriteLine();
         if (center.AddShipment(standard)) Console.WriteLine("Shipment Added Successfully.");
         if (center.AddShipment(express)) Console.WriteLine("Shipment Added Successfully.");
         if (center.AddShipment(international)) Console.WriteLine("Shipment Added Successfully.");
 
 
-        // h. Print all shipments using PrintAllShipments()
+        // e. Print all shipment details
         center.PrintAllShipments();
 
 
-        // i. Call DeliveryHelper.PrintShipmentDetails() for each shipment
+        // f. Print the tracking status of every shipment
+        center.PrintTrackingStatuses();
+
+
+        // g. Print the insurance cost of every shipment
+        DeliveryReport report = new DeliveryReport();
         Console.WriteLine("\n========================================");
-        Console.WriteLine("Printing Using DeliveryHelper...\n");
+        Console.WriteLine("\nInsurance");
 
-        DeliveryHelper.PrintShipmentDetails(standard);
-        DeliveryHelper.PrintShipmentDetails(express);
-        DeliveryHelper.PrintShipmentDetails(international);
+        Console.Write("\nStandard Shipment ");
+        report.PrintInsurance(standard);
+        Console.Write("\nExpress Shipment ");
+        report.PrintInsurance(express);
+        Console.Write("\nInternational Shipment ");
+        report.PrintInsurance(international);
 
-        // j. Demonstrate both versions of UpdateWeight()
+        //h.Store the shipment objects in an ITrackable[] array and print their tracking statuses
+        ITrackable[] trackableShipments = { standard, express, international };
         Console.WriteLine("\n========================================");
-        Console.WriteLine("Updating Weight...\n");
+        Console.WriteLine("\nTracking Status Using ITrackable[]");
 
-        Console.WriteLine($"Original Weight : {standard.Weight} KG");
-
-        decimal newWeight;
-        do
+        foreach (ITrackable t in trackableShipments)
         {
-            Console.Write("Enter New Weight: ");
-        }
-        while (!decimal.TryParse(Console.ReadLine(), out newWeight));
-
-        standard.UpdateWeight(newWeight);
-        Console.WriteLine($"Updated Weight : {standard.Weight} KG");
-
-        decimal packingWeight;
-        do
-        {
-            Console.Write("Enter Packing Weight: ");
-        }
-        while (!decimal.TryParse(Console.ReadLine(), out packingWeight));
-
-        standard.UpdateWeight(newWeight, packingWeight);
-        Console.WriteLine($"Updated Weight After Packing : {standard.Weight} KG");
-
-        // k. Build a Shipment[] holding mixed types and print all of them in a loop
-        Console.WriteLine("\n========================================");
-        Console.WriteLine("Printing Using Shipment[]...\n");
-
-        Shipment[] mixedShipments = { standard, express, international };
-
-        foreach (Shipment s in mixedShipments)
-        {
-            s.PrintShipment();
-            Console.WriteLine();
+            report.PrintShipment(t);
         }
 
-        // l. Demonstrate the sealed class and sealed method
 
-        //Answer ->  CompletedShipment is sealed class,so it cannot be inherited by another class.
+        //i.Store the shipment objects in an IInsurable[] array and print their insurance values
+        IInsurable[] insurableShipments = { standard, express, international };
+        Console.WriteLine("\n========================================");
+        Console.WriteLine("\nInsurance Using IInsurable[]");
 
-        // GenerateCustomsReport() is sealed in PriorityInternationalShipment,so it cannot be overridden again in derived class.
+        foreach (IInsurable ins in insurableShipments)
+        {
+            report.PrintInsurance(ins);
+        }
+
 
         Console.WriteLine("\n========================================");
+        Console.WriteLine("\nInterface Polymorphism Demonstrated Successfully.");
+
+       
+
+
+
 
         #endregion
 
