@@ -1,8 +1,11 @@
 ﻿using Assignment_4.Classes;
+using Assignment_4.Interfaces;
 using Assignment_4.Structs;
 using System.Drawing;
+using System.Net.NetworkInformation;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Assignment_4;
 
@@ -802,6 +805,220 @@ internal class Program
         // multiple interface implementation.
 
         #endregion
+
+        #endregion
+
+        #region Part02
+        /*8 Main() Checklist
+        ☐ a. Create one StandardShipment.
+        ☐ b. Create one ExpressShipment.
+        ☐ c. Create one InternationalShipment.
+        ☐ d. Add all shipments to the DeliveryCenter.
+        ☐ e. Print all shipment details.
+        ☐ f. Print the tracking status of every shipment.
+        ☐ g. Print the insurance cost of every shipment.
+        ☐ h. Store the shipment objects in an ITrackable[] array and print their tracking statuses.
+        ☐ i. Store the shipment objects in an IInsurable[] array and print their insurance values.*/
+
+        Console.Write("Enter Delivery Center Name: ");
+        string centerName = Console.ReadLine()!;
+
+        DeliveryCenter center = new DeliveryCenter(centerName);
+
+
+        // a. Create one StandardShipment
+        Console.WriteLine("\n--- Enter Standard Shipment Data ---");
+
+        Console.Write("Tracking Code: ");
+        string stCode = Console.ReadLine()!;
+
+        Console.Write("Description: ");
+        string stDesc = Console.ReadLine()!;
+
+        decimal stWeight;
+        do
+        {
+            Console.Write("Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out stWeight));
+
+        decimal stFee;
+        do
+        {
+            Console.Write("Delivery Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out stFee));
+
+        Console.Write("City: ");
+        string stCity = Console.ReadLine()!;
+
+        Console.Write("Street: ");
+        string stStreet = Console.ReadLine()!;
+
+        int stBuilding;
+        do
+        {
+            Console.Write("Building Number: ");
+        }
+        while (!int.TryParse(Console.ReadLine(), out stBuilding));
+
+        DeliveryAddress standardAddress = new DeliveryAddress(stCity, stStreet, stBuilding);
+        StandardShipment standard = new StandardShipment(stCode, stDesc, stWeight, stFee, standardAddress);
+
+
+        // b. Create one ExpressShipment
+        Console.WriteLine("\n--- Enter Express Shipment Data ---");
+
+        Console.Write("Tracking Code: ");
+        string exCode = Console.ReadLine()!;
+
+        Console.Write("Description: ");
+        string exDesc = Console.ReadLine()!;
+
+        decimal exWeight;
+        do
+        {
+            Console.Write("Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out exWeight));
+
+        decimal exFee;
+        do
+        {
+            Console.Write("Delivery Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out exFee));
+
+        decimal extraFee;
+        do
+        {
+            Console.Write("Extra Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out extraFee));
+
+        Console.Write("City: ");
+        string exCity = Console.ReadLine()!;
+
+        Console.Write("Street: ");
+        string exStreet = Console.ReadLine()!;
+
+        int exBuilding;
+        do
+        {
+            Console.Write("Building Number: ");
+        }
+        while (!int.TryParse(Console.ReadLine(), out exBuilding));
+
+        DeliveryAddress expressAddress = new DeliveryAddress(exCity, exStreet, exBuilding);
+        ExpressShipment express = new ExpressShipment(exCode, exDesc, exWeight, exFee, expressAddress, extraFee);
+
+
+        // c. Create one InternationalShipment
+        Console.WriteLine("\n--- Enter International Shipment Data ---");
+
+        Console.Write("Tracking Code: ");
+        string inCode = Console.ReadLine()!;
+
+        Console.Write("Description: ");
+        string inDesc = Console.ReadLine()!;
+
+        decimal inWeight;
+        do
+        {
+            Console.Write("Weight: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out inWeight));
+
+        decimal inFee;
+        do
+        {
+            Console.Write("Delivery Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out inFee));
+
+        Console.Write("Destination Country: ");
+        string country = Console.ReadLine()!;
+
+        decimal customsFee;
+        do
+        {
+            Console.Write("Customs Fee: ");
+        }
+        while (!decimal.TryParse(Console.ReadLine(), out customsFee));
+
+        Console.Write("City: ");
+        string inCity = Console.ReadLine()!;
+
+        Console.Write("Street: ");
+        string inStreet = Console.ReadLine()!;
+
+        int inBuilding;
+        do
+        {
+            Console.Write("Building Number: ");
+        }
+        while (!int.TryParse(Console.ReadLine(), out inBuilding));
+
+        DeliveryAddress internationalAddress = new DeliveryAddress(inCity, inStreet, inBuilding);
+        InternationalShipment international = new InternationalShipment(inCode, inDesc, inWeight, inFee, internationalAddress, country, customsFee);
+
+
+        // d. Add all shipments to the DeliveryCenter
+        Console.WriteLine();
+        if (center.AddShipment(standard)) Console.WriteLine("Shipment Added Successfully.");
+        if (center.AddShipment(express)) Console.WriteLine("Shipment Added Successfully.");
+        if (center.AddShipment(international)) Console.WriteLine("Shipment Added Successfully.");
+
+
+        // e. Print all shipment details
+        center.PrintAllShipments();
+
+
+        // f. Print the tracking status of every shipment
+        center.PrintTrackingStatuses();
+
+
+        // g. Print the insurance cost of every shipment
+        DeliveryReport report = new DeliveryReport();
+        Console.WriteLine("\n========================================");
+        Console.WriteLine("\nInsurance");
+
+        Console.Write("\nStandard Shipment ");
+        report.PrintInsurance(standard);
+        Console.Write("\nExpress Shipment ");
+        report.PrintInsurance(express);
+        Console.Write("\nInternational Shipment ");
+        report.PrintInsurance(international);
+
+        //h.Store the shipment objects in an ITrackable[] array and print their tracking statuses
+        ITrackable[] trackableShipments = { standard, express, international };
+        Console.WriteLine("\n========================================");
+        Console.WriteLine("\nTracking Status Using ITrackable[]");
+
+        foreach (ITrackable t in trackableShipments)
+        {
+            report.PrintShipment(t);
+        }
+
+
+        //i.Store the shipment objects in an IInsurable[] array and print their insurance values
+        IInsurable[] insurableShipments = { standard, express, international };
+        Console.WriteLine("\n========================================");
+        Console.WriteLine("\nInsurance Using IInsurable[]");
+
+        foreach (IInsurable ins in insurableShipments)
+        {
+            report.PrintInsurance(ins);
+        }
+
+
+        Console.WriteLine("\n========================================");
+        Console.WriteLine("\nInterface Polymorphism Demonstrated Successfully.");
+
+       
+
+
+
 
         #endregion
 

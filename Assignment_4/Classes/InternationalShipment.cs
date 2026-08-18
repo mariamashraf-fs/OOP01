@@ -2,24 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Assignment_4.Interfaces;
 
 namespace Assignment_4.Classes
 {
-
-    public class InternationalShipment : Shipment
+    public class InternationalShipment : Shipment, ITrackable, IInsurable
     {
         private string destinationCountry = "Unknown";
         private decimal customsFee;
 
-
         public string DestinationCountry
         {
             get { return destinationCountry; }
-            set { if (!string.IsNullOrWhiteSpace(value))
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
                     destinationCountry = value;
             }
         }
-
 
         public decimal CustomsFee
         {
@@ -27,12 +27,10 @@ namespace Assignment_4.Classes
             set { customsFee = (value >= 0) ? value : customsFee; }
         }
 
-
         public override decimal EstimatedCost
         {
-            get{ return base.EstimatedCost + CustomsFee; }
+            get { return DeliveryFee + (Weight * 5) + CustomsFee; }
         }
-
 
         public InternationalShipment(string tcode, string desc, decimal weight, decimal fee, DeliveryAddress destination, string country,
             decimal customsFee) : base(tcode, desc, weight, fee, destination)
@@ -50,11 +48,24 @@ namespace Assignment_4.Classes
         public override void PrintShipment()
         {
             Console.WriteLine("International Shipment\n");
-            base.PrintShipment();
+            Console.WriteLine($"Tracking Code       : {TrackingCode}");
+            Console.WriteLine($"Description         : {Description}");
+            Console.WriteLine($"Weight              : {Weight} KG");
+            Console.WriteLine($"Delivery Fee        : {DeliveryFee} EGP");
             Console.WriteLine($"Destination Country : {DestinationCountry}");
             Console.WriteLine($"Customs Fee         : {CustomsFee} EGP");
             Console.WriteLine($"Estimated Cost      : {EstimatedCost} EGP");
             Console.WriteLine("\n-------------------------------------------");
+        }
+
+        public string GetTrackingStatus()
+        {
+            return $"\nShipment {TrackingCode} has been Delivered.";
+        }
+
+        public decimal CalculateInsurance()
+        {
+            return EstimatedCost * 0.12m;
         }
     }
 }
