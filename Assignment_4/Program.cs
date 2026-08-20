@@ -820,207 +820,454 @@ internal class Program
         ☐ h. Store the shipment objects in an ITrackable[] array and print their tracking statuses.
         ☐ i. Store the shipment objects in an IInsurable[] array and print their insurance values.*/
 
-        Console.Write("Enter Delivery Center Name: ");
-        string centerName = Console.ReadLine()!;
+        //Console.Write("Enter Delivery Center Name: ");
+        //string centerName = Console.ReadLine()!;
 
-        DeliveryCenter center = new DeliveryCenter(centerName);
-
-
-        // a. Create one StandardShipment
-        Console.WriteLine("\n--- Enter Standard Shipment Data ---");
-
-        Console.Write("Tracking Code: ");
-        string stCode = Console.ReadLine()!;
-
-        Console.Write("Description: ");
-        string stDesc = Console.ReadLine()!;
-
-        decimal stWeight;
-        do
-        {
-            Console.Write("Weight: ");
-        }
-        while (!decimal.TryParse(Console.ReadLine(), out stWeight));
-
-        decimal stFee;
-        do
-        {
-            Console.Write("Delivery Fee: ");
-        }
-        while (!decimal.TryParse(Console.ReadLine(), out stFee));
-
-        Console.Write("City: ");
-        string stCity = Console.ReadLine()!;
-
-        Console.Write("Street: ");
-        string stStreet = Console.ReadLine()!;
-
-        int stBuilding;
-        do
-        {
-            Console.Write("Building Number: ");
-        }
-        while (!int.TryParse(Console.ReadLine(), out stBuilding));
-
-        DeliveryAddress standardAddress = new DeliveryAddress(stCity, stStreet, stBuilding);
-        StandardShipment standard = new StandardShipment(stCode, stDesc, stWeight, stFee, standardAddress);
+        //DeliveryCenter center = new DeliveryCenter(centerName);
 
 
-        // b. Create one ExpressShipment
-        Console.WriteLine("\n--- Enter Express Shipment Data ---");
+        //// a. Create one StandardShipment
+        //Console.WriteLine("\n--- Enter Standard Shipment Data ---");
 
-        Console.Write("Tracking Code: ");
-        string exCode = Console.ReadLine()!;
+        //Console.Write("Tracking Code: ");
+        //string stCode = Console.ReadLine()!;
 
-        Console.Write("Description: ");
-        string exDesc = Console.ReadLine()!;
+        //Console.Write("Description: ");
+        //string stDesc = Console.ReadLine()!;
 
-        decimal exWeight;
-        do
-        {
-            Console.Write("Weight: ");
-        }
-        while (!decimal.TryParse(Console.ReadLine(), out exWeight));
+        //decimal stWeight;
+        //do
+        //{
+        //    Console.Write("Weight: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out stWeight));
 
-        decimal exFee;
-        do
-        {
-            Console.Write("Delivery Fee: ");
-        }
-        while (!decimal.TryParse(Console.ReadLine(), out exFee));
+        //decimal stFee;
+        //do
+        //{
+        //    Console.Write("Delivery Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out stFee));
 
-        decimal extraFee;
-        do
-        {
-            Console.Write("Extra Fee: ");
-        }
-        while (!decimal.TryParse(Console.ReadLine(), out extraFee));
+        //Console.Write("City: ");
+        //string stCity = Console.ReadLine()!;
 
-        Console.Write("City: ");
-        string exCity = Console.ReadLine()!;
+        //Console.Write("Street: ");
+        //string stStreet = Console.ReadLine()!;
 
-        Console.Write("Street: ");
-        string exStreet = Console.ReadLine()!;
+        //int stBuilding;
+        //do
+        //{
+        //    Console.Write("Building Number: ");
+        //}
+        //while (!int.TryParse(Console.ReadLine(), out stBuilding));
 
-        int exBuilding;
-        do
-        {
-            Console.Write("Building Number: ");
-        }
-        while (!int.TryParse(Console.ReadLine(), out exBuilding));
-
-        DeliveryAddress expressAddress = new DeliveryAddress(exCity, exStreet, exBuilding);
-        ExpressShipment express = new ExpressShipment(exCode, exDesc, exWeight, exFee, expressAddress, extraFee);
+        //DeliveryAddress standardAddress = new DeliveryAddress(stCity, stStreet, stBuilding);
+        //StandardShipment standard = new StandardShipment(stCode, stDesc, stWeight, stFee, standardAddress);
 
 
-        // c. Create one InternationalShipment
-        Console.WriteLine("\n--- Enter International Shipment Data ---");
+        //// b. Create one ExpressShipment
+        //Console.WriteLine("\n--- Enter Express Shipment Data ---");
 
-        Console.Write("Tracking Code: ");
-        string inCode = Console.ReadLine()!;
+        //Console.Write("Tracking Code: ");
+        //string exCode = Console.ReadLine()!;
 
-        Console.Write("Description: ");
-        string inDesc = Console.ReadLine()!;
+        //Console.Write("Description: ");
+        //string exDesc = Console.ReadLine()!;
 
-        decimal inWeight;
-        do
-        {
-            Console.Write("Weight: ");
-        }
-        while (!decimal.TryParse(Console.ReadLine(), out inWeight));
+        //decimal exWeight;
+        //do
+        //{
+        //    Console.Write("Weight: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out exWeight));
 
-        decimal inFee;
-        do
-        {
-            Console.Write("Delivery Fee: ");
-        }
-        while (!decimal.TryParse(Console.ReadLine(), out inFee));
+        //decimal exFee;
+        //do
+        //{
+        //    Console.Write("Delivery Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out exFee));
 
-        Console.Write("Destination Country: ");
-        string country = Console.ReadLine()!;
+        //decimal extraFee;
+        //do
+        //{
+        //    Console.Write("Extra Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out extraFee));
 
-        decimal customsFee;
-        do
-        {
-            Console.Write("Customs Fee: ");
-        }
-        while (!decimal.TryParse(Console.ReadLine(), out customsFee));
+        //Console.Write("City: ");
+        //string exCity = Console.ReadLine()!;
 
-        Console.Write("City: ");
-        string inCity = Console.ReadLine()!;
+        //Console.Write("Street: ");
+        //string exStreet = Console.ReadLine()!;
 
-        Console.Write("Street: ");
-        string inStreet = Console.ReadLine()!;
+        //int exBuilding;
+        //do
+        //{
+        //    Console.Write("Building Number: ");
+        //}
+        //while (!int.TryParse(Console.ReadLine(), out exBuilding));
 
-        int inBuilding;
-        do
-        {
-            Console.Write("Building Number: ");
-        }
-        while (!int.TryParse(Console.ReadLine(), out inBuilding));
-
-        DeliveryAddress internationalAddress = new DeliveryAddress(inCity, inStreet, inBuilding);
-        InternationalShipment international = new InternationalShipment(inCode, inDesc, inWeight, inFee, internationalAddress, country, customsFee);
+        //DeliveryAddress expressAddress = new DeliveryAddress(exCity, exStreet, exBuilding);
+        //ExpressShipment express = new ExpressShipment(exCode, exDesc, exWeight, exFee, expressAddress, extraFee);
 
 
-        // d. Add all shipments to the DeliveryCenter
-        Console.WriteLine();
-        if (center.AddShipment(standard)) Console.WriteLine("Shipment Added Successfully.");
-        if (center.AddShipment(express)) Console.WriteLine("Shipment Added Successfully.");
-        if (center.AddShipment(international)) Console.WriteLine("Shipment Added Successfully.");
+        //// c. Create one InternationalShipment
+        //Console.WriteLine("\n--- Enter International Shipment Data ---");
+
+        //Console.Write("Tracking Code: ");
+        //string inCode = Console.ReadLine()!;
+
+        //Console.Write("Description: ");
+        //string inDesc = Console.ReadLine()!;
+
+        //decimal inWeight;
+        //do
+        //{
+        //    Console.Write("Weight: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out inWeight));
+
+        //decimal inFee;
+        //do
+        //{
+        //    Console.Write("Delivery Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out inFee));
+
+        //Console.Write("Destination Country: ");
+        //string country = Console.ReadLine()!;
+
+        //decimal customsFee;
+        //do
+        //{
+        //    Console.Write("Customs Fee: ");
+        //}
+        //while (!decimal.TryParse(Console.ReadLine(), out customsFee));
+
+        //Console.Write("City: ");
+        //string inCity = Console.ReadLine()!;
+
+        //Console.Write("Street: ");
+        //string inStreet = Console.ReadLine()!;
+
+        //int inBuilding;
+        //do
+        //{
+        //    Console.Write("Building Number: ");
+        //}
+        //while (!int.TryParse(Console.ReadLine(), out inBuilding));
+
+        //DeliveryAddress internationalAddress = new DeliveryAddress(inCity, inStreet, inBuilding);
+        //InternationalShipment international = new InternationalShipment(inCode, inDesc, inWeight, inFee, internationalAddress, country, customsFee);
 
 
-        // e. Print all shipment details
-        center.PrintAllShipments();
+        //// d. Add all shipments to the DeliveryCenter
+        //Console.WriteLine();
+        //if (center.AddShipment(standard)) Console.WriteLine("Shipment Added Successfully.");
+        //if (center.AddShipment(express)) Console.WriteLine("Shipment Added Successfully.");
+        //if (center.AddShipment(international)) Console.WriteLine("Shipment Added Successfully.");
 
 
-        // f. Print the tracking status of every shipment
-        center.PrintTrackingStatuses();
+        //// e. Print all shipment details
+        //center.PrintAllShipments();
 
 
-        // g. Print the insurance cost of every shipment
-        DeliveryReport report = new DeliveryReport();
-        Console.WriteLine("\n========================================");
-        Console.WriteLine("\nInsurance");
-
-        Console.Write("\nStandard Shipment ");
-        report.PrintInsurance(standard);
-        Console.Write("\nExpress Shipment ");
-        report.PrintInsurance(express);
-        Console.Write("\nInternational Shipment ");
-        report.PrintInsurance(international);
-
-        //h.Store the shipment objects in an ITrackable[] array and print their tracking statuses
-        ITrackable[] trackableShipments = { standard, express, international };
-        Console.WriteLine("\n========================================");
-        Console.WriteLine("\nTracking Status Using ITrackable[]");
-
-        foreach (ITrackable t in trackableShipments)
-        {
-            report.PrintShipment(t);
-        }
+        //// f. Print the tracking status of every shipment
+        //center.PrintTrackingStatuses();
 
 
-        //i.Store the shipment objects in an IInsurable[] array and print their insurance values
-        IInsurable[] insurableShipments = { standard, express, international };
-        Console.WriteLine("\n========================================");
-        Console.WriteLine("\nInsurance Using IInsurable[]");
+        //// g. Print the insurance cost of every shipment
+        //DeliveryReport report = new DeliveryReport();
+        //Console.WriteLine("\n========================================");
+        //Console.WriteLine("\nInsurance");
 
-        foreach (IInsurable ins in insurableShipments)
-        {
-            report.PrintInsurance(ins);
-        }
+        //Console.Write("\nStandard Shipment ");
+        //report.PrintInsurance(standard);
+        //Console.Write("\nExpress Shipment ");
+        //report.PrintInsurance(express);
+        //Console.Write("\nInternational Shipment ");
+        //report.PrintInsurance(international);
+
+        ////h.Store the shipment objects in an ITrackable[] array and print their tracking statuses
+        //ITrackable[] trackableShipments = { standard, express, international };
+        //Console.WriteLine("\n========================================");
+        //Console.WriteLine("\nTracking Status Using ITrackable[]");
+
+        //foreach (ITrackable t in trackableShipments)
+        //{
+        //    report.PrintShipment(t);
+        //}
 
 
-        Console.WriteLine("\n========================================");
-        Console.WriteLine("\nInterface Polymorphism Demonstrated Successfully.");
+        ////i.Store the shipment objects in an IInsurable[] array and print their insurance values
+        //IInsurable[] insurableShipments = { standard, express, international };
+        //Console.WriteLine("\n========================================");
+        //Console.WriteLine("\nInsurance Using IInsurable[]");
 
-       
+        //foreach (IInsurable ins in insurableShipments)
+        //{
+        //    report.PrintInsurance(ins);
+        //}
+
+
+        //Console.WriteLine("\n========================================");
+        //Console.WriteLine("\nInterface Polymorphism Demonstrated Successfully.");
+
+
 
 
 
 
         #endregion
+
+        #endregion
+
+        #region Assignment_8            
+
+        #region Part01
+
+        #region Question_1
+
+        /*a) What happens when you assign one object variable to another object variable?*/
+
+        //Answer ->
+        // Both variables refer to the same object in memory.
+        // No new object is created.
+
+
+        /*b) Does assigning one object to another create a new object? Explain.*/
+
+        //Answer ->
+        // No,Assigning one object variable to another does not create new object and it only copies the reference
+        // to the same object.
+
+
+        /*c) What is the difference between copying an object and copying its reference?*/
+
+        //Answer ->
+        // Copying the reference means both variables point to the same object.
+        // Copying the object means creating a new object with the same data as the original.
+
+        #endregion
+
+        #region Question_2
+
+        /*a) What is a Shallow Copy?*/
+
+        //Answer ->
+        // A Shallow Copy creates a new object and copies the values of the original object's fields and
+        // reference-type fields still refer to the same objects.
+
+
+        /*b) What is a Deep Copy?*/
+
+        //Answer ->
+        // A Deep Copy creates a new object and also creates new copies of its reference-type members, so the copied object
+        // is completely independent from the original.
+
+
+        /*c) What happens to reference-type members when a Shallow Copy is created?*/
+
+        //Answer ->
+        // The references are copied, not the objects themselves and therefore, both the original
+        // and copied objects refer to the same reference-type object.
+
+
+        /*d) What happens to reference-type members when a Deep Copy is created?*/
+
+        //Answer ->
+        // New objects are created for the reference-type members,so the original and copied objects have
+        // independent references.
+
+
+        /*e) Give one situation where Deep Copy would be safer than Shallow Copy.*/
+
+        //Answer ->
+        // Deep Copy is safer when changing the copied object must not affect the original object,especially when
+        // the object contains reference-type members such as DeliveryAddress.
+
+        #endregion
+
+        #region Question_3
+
+        /*a) What is a static field, and how is it different from an instance field?*/
+
+        //Answer ->
+        // A static field belongs to the class itself and is shared by all objects of that class.
+        // An instance field belongs to each individual object, so every object has its own copy.
+
+
+        /*b) What is a static method? Can a static method directly access instance members?*/
+
+        //Answer ->
+        // A static method belongs to the class and can be called without creating an object.
+        // No, Because instance members belong to a specific object.
+
+
+        /*c) What is a static constructor, and when is it executed?*/
+
+        //Answer ->
+        // A static constructor is used to initialize static members.
+        // It is executed automatically once, before the first instance of the class is created or before any
+        // static member is accessed.
+
+
+        /*d) What is a static class? Can you create an object from a static class?*/
+
+        //Answer ->
+        // A static class contains only static members and cannot be instantiated.
+        // No, you cannot create an object from a static class.
+
+        #endregion
+
+        #region Question_4
+
+        /*a) What is an Extension Method?*/
+
+        //Answer ->
+        // An Extension Method allows you to add a new method to an existing type without modifying its original class
+        // or creating a derived class.
+
+
+        /*b) What keyword must be used in the first parameter of an extension method?*/
+
+        //Answer -> this
+
+
+        /*c) Where must an extension method be declared?*/
+
+        //Answer -> It must be declared inside a static class.
+
+
+        /*d) Can an extension method access private members of the class it extends?*/
+
+        //Answer ->
+        // No, An extension method cannot directly access private members of the class it extends.
+
+        #endregion
+
+        #endregion
+
+        #region Part02
+        /*11 Main() Checklist
+          ☐ 1.Demonstrate reference assignment between two shipment variables.
+          ☐ 2.Demonstrate that reference assignment does not create a new object.
+          ☐ 3.Create a Shallow Copy using MemberwiseClone().
+          ☐ 4.Demonstrate that the shallow copy shares the same DeliveryAddress.
+          ☐ 5.Create a Deep Copy.
+          ☐ 6.Demonstrate that the deep copy has an independent DeliveryAddress.
+          ☐ 7.Add and demonstrate the static shipment counter.
+          ☐ 8.Demonstrate the static constructor.
+          ☐ 9.Call GetTotalShipmentsCreated().
+          ☐ 10.Create and use DeliveryUtilities.
+          ☐ 11.Create and use ShipmentExtensions.
+          ☐ 12.Demonstrate GetSummary().
+          ☐ 13.Demonstrate IsDelivered().*/
+
+        //10.Create and use DeliveryUtilities.
+        DeliveryUtilities.PrintSystemTitle("Smart Delivery Management System");
+
+        //8.Demonstrate the static constructor.
+        //Console.WriteLine("\nShipment System Initialized\n");
+
+        DeliveryUtilities.PrintSystemTitle("Creating Shipments...");
+
+
+        DeliveryAddress address1 = new DeliveryAddress("Cairo", "Nasr City", 10);
+        DeliveryAddress address2 = new DeliveryAddress("Cairo", "Heliopolis", 20);
+        DeliveryAddress address3 = new DeliveryAddress("Cairo", "Maadi", 30);
+
+        StandardShipment standard = new StandardShipment("SH001", "Standard Package", 3, 50, address1);
+
+        ExpressShipment express = new ExpressShipment("SH002", "Express Package", 2, 70, address2, 30);
+
+        InternationalShipment international = new InternationalShipment("SH003", "International Package", 8, 100,
+            address3, "USA", 50);
+
+        Console.WriteLine("Standard Shipment Created");
+        Console.WriteLine("Express Shipment Created");
+        Console.WriteLine("International Shipment Created");
+
+        DeliveryCenter center = new DeliveryCenter("Main Center");
+
+        center.AddShipment(standard);
+        center.AddShipment(express);
+        center.AddShipment(international);
+
+        //7.Add and demonstrate the static shipment counter.
+        //9.Call GetTotalShipmentsCreated().
+        Console.WriteLine($"\nTotal Shipments Created : {Shipment.GetTotalShipmentsCreated()}");
+
+        // 1. Demonstrate reference assignment between two shipment variables.
+        // 2. Demonstrate that reference assignment does not create a new object.
+        DeliveryUtilities.PrintSystemTitle("\nObject Copying");
+
+        Shipment shipment1 = standard;
+        Shipment shipment2 = shipment1;
+
+        Console.WriteLine($"Original Shipment  : {shipment1.TrackingCode}");
+        Console.WriteLine($"Assigned Shipment  : {shipment2.TrackingCode}");
+
+        Console.WriteLine($"\nSame Object : {ReferenceEquals(shipment1, shipment2)}");
+
+        // 3. Create a Shallow Copy using MemberwiseClone().
+        // 4. Demonstrate that the shallow copy shares the same DeliveryAddress.
+        Console.WriteLine("\n------------------------------------------");
+        Console.WriteLine("Shallow Copy");
+        Console.WriteLine("------------------------------------------\n");
+
+        Shipment shallowCopy = standard.ShallowCopy();
+
+        Console.WriteLine($"Original Shipment Address : {standard.Destination.City}");
+        Console.WriteLine($"Copied Shipment Address   : {shallowCopy.Destination.City}");
+
+        Console.WriteLine("\nChanging copied shipment address...");
+        shallowCopy.Destination.City = "Giza";
+
+        Console.WriteLine($"\nOriginal Shipment Address : {standard.Destination.City}");
+        Console.WriteLine($"Copied Shipment Address   : {shallowCopy.Destination.City}");
+        Console.WriteLine($"\nSame DeliveryAddress Object : {ReferenceEquals(standard.Destination, shallowCopy.Destination)}");
+
+        // 5. Create a Deep Copy.
+        // 6. Demonstrate that the deep copy has an independent DeliveryAddress.
+        Console.WriteLine("\n------------------------------------------");
+        Console.WriteLine("Deep Copy");
+        Console.WriteLine("------------------------------------------\n");
+
+        standard.Destination = new DeliveryAddress("Cairo", "Nasr City", 10);
+
+        Shipment deepCopy = standard.DeepCopy();
+
+        Console.WriteLine($"Original Shipment Address : {standard.Destination.City}");
+        Console.WriteLine($"Copied Shipment Address   : {deepCopy.Destination.City}");
+
+        Console.WriteLine("\nChanging copied shipment address...");
+        deepCopy.Destination.City = "Giza";
+
+        Console.WriteLine($"\nOriginal Shipment Address : {standard.Destination.City}");
+        Console.WriteLine($"Copied Shipment Address   : {deepCopy.Destination.City}");
+        Console.WriteLine($"\nSame DeliveryAddress Object : {ReferenceEquals(standard.Destination, deepCopy.Destination)}");
+
+        // 11. Create and use ShipmentExtensions.
+        // 12. Demonstrate GetSummary().
+        // 13. Demonstrate IsDelivered().
+        DeliveryUtilities.PrintSystemTitle("Extension Methods");
+
+        Console.WriteLine(standard.GetSummary());
+        Console.WriteLine(express.GetSummary());
+        Console.WriteLine(international.GetSummary());
+
+        Console.WriteLine($"\n{standard.TrackingCode} Is Delivered : {standard.IsDelivered()}");
+        Console.WriteLine($"{international.TrackingCode} Is Delivered : {international.IsDelivered()}");
+
+
+        DeliveryUtilities.PrintSystemTitle("Assignment Completed");
+
+        #endregion
+
+
 
         #endregion
 

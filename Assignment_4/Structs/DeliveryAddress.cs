@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Assignment_4.Structs
 {
-    public struct DeliveryAddress
+    public /*struct*/ class DeliveryAddress
     {
         public string City;
         public string Street;
