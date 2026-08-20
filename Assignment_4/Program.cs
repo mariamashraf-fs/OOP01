@@ -1150,6 +1150,125 @@ internal class Program
 
         #endregion
 
+        #region Part02
+        /*11 Main() Checklist
+          ☐ 1.Demonstrate reference assignment between two shipment variables.
+          ☐ 2.Demonstrate that reference assignment does not create a new object.
+          ☐ 3.Create a Shallow Copy using MemberwiseClone().
+          ☐ 4.Demonstrate that the shallow copy shares the same DeliveryAddress.
+          ☐ 5.Create a Deep Copy.
+          ☐ 6.Demonstrate that the deep copy has an independent DeliveryAddress.
+          ☐ 7.Add and demonstrate the static shipment counter.
+          ☐ 8.Demonstrate the static constructor.
+          ☐ 9.Call GetTotalShipmentsCreated().
+          ☐ 10.Create and use DeliveryUtilities.
+          ☐ 11.Create and use ShipmentExtensions.
+          ☐ 12.Demonstrate GetSummary().
+          ☐ 13.Demonstrate IsDelivered().*/
+
+        //10.Create and use DeliveryUtilities.
+        DeliveryUtilities.PrintSystemTitle("Smart Delivery Management System");
+
+        //8.Demonstrate the static constructor.
+        //Console.WriteLine("\nShipment System Initialized\n");
+
+        DeliveryUtilities.PrintSystemTitle("Creating Shipments...");
+
+
+        DeliveryAddress address1 = new DeliveryAddress("Cairo", "Nasr City", 10);
+        DeliveryAddress address2 = new DeliveryAddress("Cairo", "Heliopolis", 20);
+        DeliveryAddress address3 = new DeliveryAddress("Cairo", "Maadi", 30);
+
+        StandardShipment standard = new StandardShipment("SH001", "Standard Package", 3, 50, address1);
+
+        ExpressShipment express = new ExpressShipment("SH002", "Express Package", 2, 70, address2, 30);
+
+        InternationalShipment international = new InternationalShipment("SH003", "International Package", 8, 100,
+            address3, "USA", 50);
+
+        Console.WriteLine("Standard Shipment Created");
+        Console.WriteLine("Express Shipment Created");
+        Console.WriteLine("International Shipment Created");
+
+        DeliveryCenter center = new DeliveryCenter("Main Center");
+
+        center.AddShipment(standard);
+        center.AddShipment(express);
+        center.AddShipment(international);
+
+        //7.Add and demonstrate the static shipment counter.
+        //9.Call GetTotalShipmentsCreated().
+        Console.WriteLine($"\nTotal Shipments Created : {Shipment.GetTotalShipmentsCreated()}");
+
+        // 1. Demonstrate reference assignment between two shipment variables.
+        // 2. Demonstrate that reference assignment does not create a new object.
+        DeliveryUtilities.PrintSystemTitle("\nObject Copying");
+
+        Shipment shipment1 = standard;
+        Shipment shipment2 = shipment1;
+
+        Console.WriteLine($"Original Shipment  : {shipment1.TrackingCode}");
+        Console.WriteLine($"Assigned Shipment  : {shipment2.TrackingCode}");
+
+        Console.WriteLine($"\nSame Object : {ReferenceEquals(shipment1, shipment2)}");
+
+        // 3. Create a Shallow Copy using MemberwiseClone().
+        // 4. Demonstrate that the shallow copy shares the same DeliveryAddress.
+        Console.WriteLine("\n------------------------------------------");
+        Console.WriteLine("Shallow Copy");
+        Console.WriteLine("------------------------------------------\n");
+
+        Shipment shallowCopy = standard.ShallowCopy();
+
+        Console.WriteLine($"Original Shipment Address : {standard.Destination.City}");
+        Console.WriteLine($"Copied Shipment Address   : {shallowCopy.Destination.City}");
+
+        Console.WriteLine("\nChanging copied shipment address...");
+        shallowCopy.Destination.City = "Giza";
+
+        Console.WriteLine($"\nOriginal Shipment Address : {standard.Destination.City}");
+        Console.WriteLine($"Copied Shipment Address   : {shallowCopy.Destination.City}");
+        Console.WriteLine($"\nSame DeliveryAddress Object : {ReferenceEquals(standard.Destination, shallowCopy.Destination)}");
+
+        // 5. Create a Deep Copy.
+        // 6. Demonstrate that the deep copy has an independent DeliveryAddress.
+        Console.WriteLine("\n------------------------------------------");
+        Console.WriteLine("Deep Copy");
+        Console.WriteLine("------------------------------------------\n");
+
+        standard.Destination = new DeliveryAddress("Cairo", "Nasr City", 10);
+
+        Shipment deepCopy = standard.DeepCopy();
+
+        Console.WriteLine($"Original Shipment Address : {standard.Destination.City}");
+        Console.WriteLine($"Copied Shipment Address   : {deepCopy.Destination.City}");
+
+        Console.WriteLine("\nChanging copied shipment address...");
+        deepCopy.Destination.City = "Giza";
+
+        Console.WriteLine($"\nOriginal Shipment Address : {standard.Destination.City}");
+        Console.WriteLine($"Copied Shipment Address   : {deepCopy.Destination.City}");
+        Console.WriteLine($"\nSame DeliveryAddress Object : {ReferenceEquals(standard.Destination, deepCopy.Destination)}");
+
+        // 11. Create and use ShipmentExtensions.
+        // 12. Demonstrate GetSummary().
+        // 13. Demonstrate IsDelivered().
+        DeliveryUtilities.PrintSystemTitle("Extension Methods");
+
+        Console.WriteLine(standard.GetSummary());
+        Console.WriteLine(express.GetSummary());
+        Console.WriteLine(international.GetSummary());
+
+        Console.WriteLine($"\n{standard.TrackingCode} Is Delivered : {standard.IsDelivered()}");
+        Console.WriteLine($"{international.TrackingCode} Is Delivered : {international.IsDelivered()}");
+
+
+        DeliveryUtilities.PrintSystemTitle("Assignment Completed");
+
+        #endregion
+
+
+
         #endregion
 
 

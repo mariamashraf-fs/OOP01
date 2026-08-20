@@ -13,6 +13,7 @@ namespace Assignment_4.Classes
         private string description;
         private decimal weight;
         private decimal deliveryFee;
+        private static int TotalShipmentsCreated;
 
         // properties
 
@@ -51,6 +52,13 @@ namespace Assignment_4.Classes
 
         public abstract decimal EstimatedCost { get; }
 
+        //Assignment_8
+        static Shipment()
+        {
+            TotalShipmentsCreated = 0;
+            Console.WriteLine("Shipment System Initialized");
+        }
+
         // Con_1
         public Shipment(string tcode)
         {
@@ -64,6 +72,8 @@ namespace Assignment_4.Classes
             Description = "Unknown";
             Weight = 1;
             DeliveryFee = 50;
+            //Assignment_8
+            TotalShipmentsCreated++;
         }
 
         // Con_2
@@ -80,6 +90,8 @@ namespace Assignment_4.Classes
             Description = desc;
             Weight = w;
             DeliveryFee = fee;
+            //Assignment_8
+            TotalShipmentsCreated++;
         }
 
         public void UpdateDeliveryFee(decimal newFee)
@@ -96,6 +108,29 @@ namespace Assignment_4.Classes
         public void UpdateWeight(decimal newWeight, decimal packingWeight)
         {
             Weight = newWeight + packingWeight;
+        }
+
+        //Assignment_8
+        public Shipment CopyShipment()
+        {
+            return (Shipment)this.MemberwiseClone();
+        }
+
+        public Shipment ShallowCopy()
+        {
+            return (Shipment)this.MemberwiseClone();
+        }
+
+        public Shipment DeepCopy()
+        {
+            Shipment copy = (Shipment)this.MemberwiseClone();
+            copy.Destination = new DeliveryAddress(Destination.City, Destination.Street, Destination.BuildingNumber);
+            return copy;
+        }
+
+        public static int GetTotalShipmentsCreated()
+        {
+            return TotalShipmentsCreated;
         }
 
         public abstract void PrintShipment();
